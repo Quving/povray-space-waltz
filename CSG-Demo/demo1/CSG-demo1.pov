@@ -6,7 +6,7 @@ global_settings { assumed_gamma 2.2 }
 #include "colors.inc"
 background { Cyan }
 camera {
-  location <0, 1, -10>
+  location <0, 100, -10>
   look_at <0, 0, 0>
   angle 36
 }
