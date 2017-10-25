@@ -14,7 +14,7 @@ sky_sphere{ pigment{color rgb<1,1,1>}}
 //---------------------------------------
 // Die rotierende Kugel:
 sphere{ <0,0,0>, 0.25
-        texture { pigment{ rgb<1,0,0>}
+        texture { pigment{ rgb<1,110,0>}
                   finish { diffuse 0.9
                            phong 1}
                 } // end of texture
