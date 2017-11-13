@@ -1,7 +1,7 @@
 # Povray Space Waltz 
 
 ### Inspiration: 
-https://www.youtube.com/watch?v=xyjOjT8d8RI
+[![](http://img.youtube.com/vi/xyjOjT8d8RI/0.jpg)](https://www.youtube.com/watch?v=xyjOjT8d8RI)
 
 
 ### Todo
