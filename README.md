@@ -18,4 +18,8 @@
 
 ### Scenes
 
+### Important
+- To credit the creator of the models
+- Soundtrack?
+
 
