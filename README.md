@@ -1,10 +1,11 @@
 # Povray Space Waltz 
 
 ### Inspiration: 
+
 [![](http://img.youtube.com/vi/xyjOjT8d8RI/0.jpg)](https://www.youtube.com/watch?v=xyjOjT8d8RI)
 
-
 ### Todo
+
 - [x] get a topic: 2001: A Space Odyssey 
 - [ ] get assets.
   - [x] import models from web.
@@ -17,8 +18,6 @@
 - [ ] define relevant scenes for the self-created movie.
 
 ### Scenes
-
-https://www.youtube.com/embed/xyjOjT8d8RI?start=53&end=59
 
 * [Scene  1](https://www.youtube.com/embed/xyjOjT8d8RI?start=0&end=13)    : Kamera schwenkt von Bombe zu Planet
 * [Scene  2](https://www.youtube.com/embed/xyjOjT8d8RI?start=13&end=23)   : Planet links, Bombe rechts im Bild
@@ -41,12 +40,12 @@ https://www.youtube.com/embed/xyjOjT8d8RI?start=53&end=59
 * [Scene 19](https://www.youtube.com/embed/xyjOjT8d8RI?start=289&end=300) : Innenansicht Orion, Cockpit: Station richtig ausgerichtet direkt vor Frontscheibe, Orion im Anflug
 * [Scene 20](https://www.youtube.com/embed/xyjOjT8d8RI?start=300&end=321) : Orion direkt vor Hangar; Kamera fliegt nah an der Station vorbei bis Station außer Sicht
 
-[text](http://link)
 ### Important
+
 - To credit the creator of the models
 - Soundtrack?
 
 ### Models
-- https://3dwarehouse.sketchup.com/model/d9288cfaf741cf087e338aebf530613c/2001-A-Space-Odyssey-EVA-Pod
 
+- https://3dwarehouse.sketchup.com/model/d9288cfaf741cf087e338aebf530613c/2001-A-Space-Odyssey-EVA-Pod
 - http://www.2001-3d-archive.info/
