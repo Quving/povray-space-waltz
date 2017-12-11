@@ -300,28 +300,28 @@ average pigment_map{
  
 //==================================================
 //Map definitions
-#declare p_map1=pigment {image_map{png "textures/orion_Aft.png"   transmit all 0 } }
-#declare p_map2=normal {bump_map{png "textures/orion_AftBump.png"  }}
-#declare p_map3=pigment {image_map{png "textures/orion_Logo.png"   transmit all 0 } }
-#declare p_map4=normal {bump_map{png "textures/orion_LogoBump.png"  }}
-#declare p_map5=pigment {image_map{png "textures/orion_Ribs.png"   transmit all 0 } }
-#declare p_map6=normal {bump_map{png "textures/orion_RibsBump.png"  }}
-#declare p_map7=pigment {image_map{png "textures/orion_HullS.png"   transmit all 0 } }
-#declare p_map8=normal {bump_map{png "textures/orion_HullSBump.png"  }}
-#declare p_map9=pigment {image_map{png "textures/orion_OCowlS.png"   transmit all 0 } }
-#declare p_map10=normal {bump_map{png "textures/orion_OCowlSBump.png"  }}
-#declare p_map11=pigment {image_map{png "textures/orion_OCowlT.png"   transmit all 0 } }
-#declare p_map12=normal {bump_map{png "textures/orion_OCowlTBump.png"  }}
-#declare p_map13=pigment {image_map{png "textures/orion_HullT.png"   transmit all 0 } }
-#declare p_map14=normal {bump_map{png "textures/orion_HullTBump.png"  }}
-#declare p_map15=pigment {image_map{png "textures/orion_Hatch.png"   transmit all 0 } }
-#declare p_map16=normal {bump_map{png "textures/orion_HatchBump.png"  }}
-#declare p_map17=pigment {image_map{png "textures/orion_Window.png"   transmit all 0 } }
-#declare p_map18=normal {bump_map{png "textures/orion_WindBump.png"  }}
-#declare p_map19=pigment {image_map{png "textures/orion_Cock.png"   transmit all 0 } }
-#declare p_map20=normal {bump_map{png "textures/orion_CockBump.png"  }}
-#declare p_map21=pigment {image_map{png "textures/orion_WingMap.png"   transmit all 0 } }
-#declare p_map22=normal {bump_map{png "textures/orion_WingBump.png"  }}
+#declare p_map1=pigment {image_map{png "../orion/textures/orion_Aft.png"   transmit all 0 } }
+#declare p_map2=normal {bump_map{png "../orion/textures/orion_AftBump.png"  }}
+#declare p_map3=pigment {image_map{png "../orion/textures/orion_Logo.png"   transmit all 0 } }
+#declare p_map4=normal {bump_map{png "../orion/textures/orion_LogoBump.png"  }}
+#declare p_map5=pigment {image_map{png "../orion/textures/orion_Ribs.png"   transmit all 0 } }
+#declare p_map6=normal {bump_map{png "../orion/textures/orion_RibsBump.png"  }}
+#declare p_map7=pigment {image_map{png "../orion/textures/orion_HullS.png"   transmit all 0 } }
+#declare p_map8=normal {bump_map{png "../orion/textures/orion_HullSBump.png"  }}
+#declare p_map9=pigment {image_map{png "../orion/textures/orion_OCowlS.png"   transmit all 0 } }
+#declare p_map10=normal {bump_map{png "../orion/textures/orion_OCowlSBump.png"  }}
+#declare p_map11=pigment {image_map{png "../orion/textures/orion_OCowlT.png"   transmit all 0 } }
+#declare p_map12=normal {bump_map{png "../orion/textures/orion_OCowlTBump.png"  }}
+#declare p_map13=pigment {image_map{png "../orion/textures/orion_HullT.png"   transmit all 0 } }
+#declare p_map14=normal {bump_map{png "../orion/textures/orion_HullTBump.png"  }}
+#declare p_map15=pigment {image_map{png "../orion/textures/orion_Hatch.png"   transmit all 0 } }
+#declare p_map16=normal {bump_map{png "../orion/textures/orion_HatchBump.png"  }}
+#declare p_map17=pigment {image_map{png "../orion/textures/orion_Window.png"   transmit all 0 } }
+#declare p_map18=normal {bump_map{png "../orion/textures/orion_WindBump.png"  }}
+#declare p_map19=pigment {image_map{png "../orion/textures/orion_Cock.png"   transmit all 0 } }
+#declare p_map20=normal {bump_map{png "../orion/textures/orion_CockBump.png"  }}
+#declare p_map21=pigment {image_map{png "../orion/textures/orion_WingMap.png"   transmit all 0 } }
+#declare p_map22=normal {bump_map{png "../orion/textures/orion_WingBump.png"  }}
  
 //==================================================
 //Material definitions
