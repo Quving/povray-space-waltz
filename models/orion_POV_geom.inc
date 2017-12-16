@@ -64,7 +64,7 @@
  
  
 //Materials
-#include "../orion/orion_POV_mat.inc"
+#include "orion_POV_mat.inc"
  
 //Geometry
 #declare orion_Aft_Hull_=mesh2{

@@ -75,8 +75,8 @@ global_settings {
     assumed_gamma 1
 }
 
-#include "../orion/orion_POV_geom.inc" //Geometry
-#include "../station/StationV_POV_geom.inc" //Geometry
+#include "orion_POV_geom.inc" //Geometry
+#include "StationV_POV_geom.inc" //Geometry
  
 //CAMERA PoseRayCAMERA
 camera {
