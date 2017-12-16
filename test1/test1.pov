@@ -80,16 +80,8 @@ global_settings {
  
 //CAMERA PoseRayCAMERA
 camera {
-    perspective
-    up <0,1,0>
-    right -x*image_width/image_height
-    location <3.33066907387547E-16,1.33226762955019E-15,1787.85103658018>
-    look_at <3.33066907387547E-16,1.33226762955019E-15,1786.85103658018>
-    angle 38.4633855154797 // horizontal FOV angle
-    rotate <0,0,1.26346700010074> //roll
-    rotate <-45.2086195197426,0,0> //pitch
-    rotate <0,42.8371672265632,0> //yaw
-    translate <0.292400000000001,3.65375,-38.6072>
+    location 0
+    look_at <1,0,0>
 }
  
 //PoseRay default Light attached to the camera
@@ -108,11 +100,13 @@ background { color srgb 0  }
  
 //Assembled object that is contained in orion_POV_geom.inc with no SSLT components
 object {
-      orion_ 
+    orion_
+    translate <1000,0,0>
 }
 
 object {
     StationV_
+    translate <2500,0,0>
 }
  
 //restore the version used outside this file
