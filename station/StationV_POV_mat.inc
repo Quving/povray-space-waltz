@@ -289,17 +289,17 @@ average pigment_map{
  
 //==================================================
 //Map definitions
-#declare p_map1=pigment {image_map{png "textures/Block.png"   transmit all 0 } }
-#declare p_map2=pigment {image_map{png "textures/BayS.png"   transmit all 0 } }
-#declare p_map3=normal {bump_map{png "textures/BaySBump.png"  }}
-#declare p_map4=pigment {image_map{png "textures/BayT.png"   transmit all 0 } }
-#declare p_map5=normal {bump_map{png "textures/BayTBump.png"  }}
-#declare p_map6=pigment {image_map{png "textures/Hub.png"   transmit all 0 } }
-#declare p_map7=normal {bump_map{png "textures/HubBump.png"  }}
-#declare p_map8=pigment {image_map{png "textures/Spindle.png"   transmit all 0 } }
-#declare p_map9=normal {bump_map{png "textures/SpindleBump.png"  }}
-#declare p_map10=pigment {image_map{png "textures/Spoke.png"   transmit all 0 } }
-#declare p_map11=pigment {image_map{png "textures/Rim.png"   transmit all 0 } }
+#declare p_map1=pigment {image_map{png "../station/textures/Block.png"   transmit all 0 } }
+#declare p_map2=pigment {image_map{png "../station/textures/BayS.png"   transmit all 0 } }
+#declare p_map3=normal {bump_map{png "../station/textures/BaySBump.png"  }}
+#declare p_map4=pigment {image_map{png "../station/textures/BayT.png"   transmit all 0 } }
+#declare p_map5=normal {bump_map{png "../station/textures/BayTBump.png"  }}
+#declare p_map6=pigment {image_map{png "../station/textures/Hub.png"   transmit all 0 } }
+#declare p_map7=normal {bump_map{png "../station/textures/HubBump.png"  }}
+#declare p_map8=pigment {image_map{png "../station/textures/Spindle.png"   transmit all 0 } }
+#declare p_map9=normal {bump_map{png "../station/textures/SpindleBump.png"  }}
+#declare p_map10=pigment {image_map{png "../station/textures/Spoke.png"   transmit all 0 } }
+#declare p_map11=pigment {image_map{png "../station/textures/Rim.png"   transmit all 0 } }
  
 //==================================================
 //Material definitions
