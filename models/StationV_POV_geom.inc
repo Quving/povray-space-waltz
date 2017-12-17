@@ -53,7 +53,7 @@
  
  
 //Materials
-#include "../station/StationV_POV_mat.inc"
+#include "StationV_POV_mat.inc"
  
 //Geometry
 #declare StationV_block_=mesh2{
