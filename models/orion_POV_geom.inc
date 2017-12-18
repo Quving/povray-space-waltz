@@ -37,7 +37,7 @@
 //CockBump.bmp
 //WingMap.bmp
 //WingBump.bmp
-// 
+//
 //==================================================
 //Model Statistics:
 //Number of triangular faces..... 13830
@@ -59,13 +59,13 @@
 //             Smallest face area 6.44204936372271E-8
 //              Largest face area 10996.0362737668
 //Memory allocated for geometry: 1 MByte
-// 
+//
 //==================================================
- 
- 
+
+
 //Materials
 #include "orion_POV_mat.inc"
- 
+
 //Geometry
 #declare orion_Aft_Hull_=mesh2{
 vertex_vectors{
@@ -18377,7 +18377,7 @@ normal_indices{
 <2277,2254,2278>
 }
 inside_vector <0,0,1> }
- 
+
 #declare orion_Black_=mesh2{
 vertex_vectors{
 1622,
@@ -28449,7 +28449,7 @@ normal_indices{
 <1268,1270,1269>
 }
 inside_vector <0,0,1> }
- 
+
 #declare orion_Logo_Side_=mesh2{
 vertex_vectors{
 122,
@@ -29129,7 +29129,7 @@ normal_indices{
 <71,66,70>
 }
 inside_vector <0,0,1> }
- 
+
 #declare orion_Ribs_=mesh2{
 vertex_vectors{
 114,
@@ -29852,7 +29852,7 @@ normal_indices{
 <130,129,97>
 }
 inside_vector <0,0,1> }
- 
+
 #declare orion_Fore_Hull_Side_=mesh2{
 vertex_vectors{
 1396,
@@ -40753,7 +40753,7 @@ normal_indices{
 <1322,1347,1324>
 }
 inside_vector <0,0,1> }
- 
+
 #declare orion_Black_Matte_=mesh2{
 vertex_vectors{
 418,
@@ -43761,7 +43761,7 @@ normal_indices{
 <288,216,289>
 }
 inside_vector <0,0,1> }
- 
+
 #declare orion_Side_=mesh2{
 vertex_vectors{
 558,
@@ -47878,7 +47878,7 @@ normal_indices{
 <557,542,543>
 }
 inside_vector <0,0,1> }
- 
+
 #declare orion_Top_=mesh2{
 vertex_vectors{
 213,
@@ -49599,7 +49599,7 @@ normal_indices{
 <57,156,161>
 }
 inside_vector <0,0,1> }
- 
+
 #declare orion_Fore_Hull_Top_=mesh2{
 vertex_vectors{
 1142,
@@ -59301,7 +59301,7 @@ normal_indices{
 <1110,1111,705>
 }
 inside_vector <0,0,1> }
- 
+
 #declare orion_Hatch_=mesh2{
 vertex_vectors{
 33,
@@ -59541,7 +59541,7 @@ normal_indices{
 <17,30,19>
 }
 inside_vector <0,0,1> }
- 
+
 #declare orion_Window_=mesh2{
 vertex_vectors{
 164,
@@ -60339,7 +60339,7 @@ normal_indices{
 <121,124,125>
 }
 inside_vector <0,0,1> }
- 
+
 #declare orion_Cockpit_=mesh2{
 vertex_vectors{
 22,
@@ -60486,7 +60486,7 @@ normal_indices{
 <16,21,20>
 }
 inside_vector <0,0,1> }
- 
+
 #declare orion_Wing_=mesh2{
 vertex_vectors{
 887,
@@ -65853,8 +65853,8 @@ normal_indices{
 <315,601,324>
 }
 inside_vector <0,0,1> }
- 
- 
+
+
 //Model assembly from the meshes
 #declare orion_=
 union {
@@ -65872,6 +65872,6 @@ object{orion_Window_  material{Window_} hollow }
 object{orion_Cockpit_  material{Cockpit_} hollow }
 object{orion_Wing_  material{Wing_} hollow }
 }
- 
+
 //restore the version used outside this file
 #version Temp_version;

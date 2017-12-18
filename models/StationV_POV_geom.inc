@@ -26,7 +26,7 @@
 //SpindleBump.bmp
 //Spoke.bmp
 //Rim.bmp
-// 
+//
 //==================================================
 //Model Statistics:
 //Number of triangular faces..... 29269
@@ -48,13 +48,13 @@
 //             Smallest face area 6.71302949999974
 //              Largest face area 207406.07261402
 //Memory allocated for geometry: 2 MBytes
-// 
+//
 //==================================================
- 
- 
+
+
 //Materials
 #include "StationV_POV_mat.inc"
- 
+
 //Geometry
 #declare StationV_block_=mesh2{
 vertex_vectors{
@@ -443,7 +443,7 @@ normal_indices{
 <17,17,17>
 }
 inside_vector <0,0,1> }
- 
+
 #declare StationV_cable_brackets_=mesh2{
 vertex_vectors{
 3200,
@@ -15284,7 +15284,7 @@ normal_indices{
 <64,72,68>
 }
 inside_vector <0,0,1> }
- 
+
 #declare StationV_cables_=mesh2{
 vertex_vectors{
 1792,
@@ -22299,7 +22299,7 @@ normal_indices{
 <592,234,234>
 }
 inside_vector <0,0,1> }
- 
+
 #declare StationV_Bay_Side_=mesh2{
 vertex_vectors{
 48,
@@ -22576,7 +22576,7 @@ normal_indices{
 <26,27,26>
 }
 inside_vector <0,0,1> }
- 
+
 #declare StationV_Bay_Top_=mesh2{
 vertex_vectors{
 24,
@@ -22713,7 +22713,7 @@ normal_indices{
 <6,6,6>
 }
 inside_vector <0,0,1> }
- 
+
 #declare StationV_hubface_=mesh2{
 vertex_vectors{
 152,
@@ -23501,7 +23501,7 @@ normal_indices{
 <6,5,5>
 }
 inside_vector <0,0,1> }
- 
+
 #declare StationV_spindle_=mesh2{
 vertex_vectors{
 3008,
@@ -47361,7 +47361,7 @@ normal_indices{
 <23,6,687>
 }
 inside_vector <0,0,1> }
- 
+
 #declare StationV_spoke_support_=mesh2{
 vertex_vectors{
 128,
@@ -47827,7 +47827,7 @@ normal_indices{
 <48,44,46>
 }
 inside_vector <0,0,1> }
- 
+
 #declare StationV_spokes_=mesh2{
 vertex_vectors{
 769,
@@ -55519,7 +55519,7 @@ normal_indices{
 <407,404,406>
 }
 inside_vector <0,0,1> }
- 
+
 #declare StationV_wheel_girders_=mesh2{
 vertex_vectors{
 4538,
@@ -74177,7 +74177,7 @@ normal_indices{
 <2415,303,2417>
 }
 inside_vector <0,0,1> }
- 
+
 #declare StationV_Face_=mesh2{
 vertex_vectors{
 2688,
@@ -91891,7 +91891,7 @@ normal_indices{
 <1261,1282,1265>
 }
 inside_vector <0,0,1> }
- 
+
 #declare StationV_Rim_=mesh2{
 vertex_vectors{
 2096,
@@ -105302,8 +105302,8 @@ normal_indices{
 <1943,1930,1930>
 }
 inside_vector <0,0,1> }
- 
- 
+
+
 //Model assembly from the meshes
 #declare StationV_=
 union {
@@ -105320,6 +105320,6 @@ object{StationV_wheel_girders_  material{wheel_girders_} hollow }
 object{StationV_Face_  material{Face_} hollow }
 object{StationV_Rim_  material{Rim_} hollow }
 }
- 
+
 //restore the version used outside this file
 #version Temp_version;
