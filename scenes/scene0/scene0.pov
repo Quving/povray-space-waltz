@@ -24,7 +24,7 @@ camera {
 
 //PoseRay default Light attached to the camera
 light_source {
-    <3.33066907387547E-16,1.33226762955019E-15,1787.85103658018> //light position
+    <100,150,-10>
     color rgb <1,1,1>*1.6
     parallel
     point_at <3.33066907387547E-16,1.33226762955019E-15,0>
@@ -33,23 +33,21 @@ light_source {
     rotate <0,42.8371672265632,0> //rotation
 }
 
-//Background
 background { color srgb 0  }
 
-//Assembled object that is contained in orion_POV_geom.inc with no SSLT components
 object {
     orion_
     /* location <0, 1000, 0> */
-    translate <0,0,1000>
-    rotate< 12, 20, 45>
+    rotate <16*sin(2*pi*clock),32*sin(2*pi*clock),32*sin(2*pi*clock) + 45>
+    translate <(1-clock)*250,-(1-clock)*500,(1-clock)*1000>
 }
 
 sphere
 {
-    <100, 2500, -200>, 1000
-    pigment { rgb <0,0,1> }
+    <10000, -12000, 20000>, 16000
+    pigment { rgb <0,0.75,0.75> }
     texture{
-        pigment{ bozo turbulence 0.75
+        pigment{ bozo turbulence 1.25
             octaves 6  omega 0.7 lambda 2
             color_map {
                 [0.0  color rgb <0.95, 0.95, 0.95> ]
@@ -57,12 +55,10 @@ sphere
                 [0.15 color rgb <0.85, 0.85, 0.85> ]
                 [0.55 color rgbt <1, 1, 1, 1>*1 ]
                 [1.0 color rgbt <1, 1, 1, 1>*1 ]
-            } // end color_map
-            translate< 3, 0,-1>
-            /* scale <0.3, 0.4, 0.2>*3 */
+            }
 
         }
-        scale 750 // end pigment
+        scale 5000
         #if (version = 3.7 )  finish {emission 1 diffuse 0}
         #else                 finish { ambient 1 diffuse 0}
         #end

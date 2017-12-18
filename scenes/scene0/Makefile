@@ -1,4 +1,4 @@
-fmpeg:
+ffmpeg:
 	ffmpeg -start_number 1 -i scene0%03d.png test.mp4
 	# rm *png
 
