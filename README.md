@@ -62,3 +62,9 @@
   - [Spline curves](http://www.f-lohmueller.de/pov_tut/animate/anim210e.htm)
   - [Closed splines](http://www.f-lohmueller.de/pov_tut/animate/anim21e.htm)
   - [Animation paths](http://www.f-lohmueller.de/pov_tut/animate/anim22e.htm)
+
+
+## Snippets
+- Planets
+  - [Planets](http://www.midnightkite.com/index.aspx?URL=PlanetRendering)
+
