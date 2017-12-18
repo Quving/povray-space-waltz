@@ -33,17 +33,18 @@ light_source {
     rotate <0,42.8371672265632,0> //rotation
 }
 
-background { color srgb 0  }
+background {
+    color srgb 0
+}
 
 object {
     orion_
     /* location <0, 1000, 0> */
-    rotate <16*sin(2*pi*clock),32*sin(2*pi*clock),32*sin(2*pi*clock) + 45>
-    translate <(1-clock)*250,-(1-clock)*500,(1-clock)*1000>
+    rotate <1*sin(2*pi*clock),1*sin(2*pi*clock),1*sin(2*pi*clock) + 45>
+    translate <-clock*250,1-clock*500,(1-clock)*1000>
 }
 
-sphere
-{
+sphere {
     <10000, -12000, 20000>, 16000
     pigment { rgb <0,0.75,0.75> }
     texture{
