@@ -1,21 +1,21 @@
-# Povray Space Waltz 
+# Povray Space Waltz
 
-### Inspiration: 
+## Inspiration:
 
 [![](http://img.youtube.com/vi/xyjOjT8d8RI/0.jpg)](https://www.youtube.com/watch?v=xyjOjT8d8RI)
 
-### Todo
+## Todo
 
-- [x] get a topic: 2001: A Space Odyssey 
+- [x] get a topic: 2001: A Space Odyssey
 - [ ] get assets.
   - [x] import models from web.
     - [x] station
     - [x] orion
     - [ ] bomb 3
-    - [ ] bomb x 
-  - [ ] skybox
-- [X] create a presentation for wednesday 15.11.2017 
-- [ ] define relevant scenes for the self-created movie.
+    - [ ] bomb x
+  - [X] skybox
+- [X] create a presentation for wednesday 15.11.2017
+- [X] define relevant scenes for the self-created movie.
 
 ### Scenes
 
@@ -42,10 +42,23 @@
 
 ### Important
 
-- To credit the creator of the models
+- Credit the creator of the models
 - Soundtrack?
+
+## Ressources
 
 ### Models
 
-- https://3dwarehouse.sketchup.com/model/d9288cfaf741cf087e338aebf530613c/2001-A-Space-Odyssey-EVA-Pod
 - http://www.2001-3d-archive.info/
+
+### Animation
+
+- [Objects, which rotate around other objects](http://www.f-lohmueller.de/pov_tut/animate/anim112e.htm)
+- Nonlinear Animations
+  - [Speed up and slow down (1)](http://www.f-lohmueller.de/pov_tut/animate/anim220e.htm)
+  - [Speed up and slow down (2)](http://www.f-lohmueller.de/pov_tut/animate/anim222e.htm)
+  - [Speed controll by spline functions](http://www.f-lohmueller.de/pov_tut/animate/anim280e.htm)
+- Animation Paths
+  - [Spline curves](http://www.f-lohmueller.de/pov_tut/animate/anim210e.htm)
+  - [Closed splines](http://www.f-lohmueller.de/pov_tut/animate/anim21e.htm)
+  - [Animation paths](http://www.f-lohmueller.de/pov_tut/animate/anim22e.htm)
