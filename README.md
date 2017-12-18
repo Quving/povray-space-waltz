@@ -65,6 +65,5 @@
 
 
 ## Snippets
-- Planets
   - [Planets](http://www.midnightkite.com/index.aspx?URL=PlanetRendering)
 
