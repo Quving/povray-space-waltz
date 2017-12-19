@@ -37,7 +37,7 @@ light_source {
 
 // scale clock value to match the spline
 #macro Time()
-End_Time * clock
+Scene_Length * clock
 #end
 
 #declare Test_Spline =
