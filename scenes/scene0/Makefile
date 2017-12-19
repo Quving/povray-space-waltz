@@ -1,9 +1,8 @@
 ffmpeg:
-	ffmpeg -start_number 1 -i scene0%02d.png test.mp4
-	# rm *png
+	bash animate.sh scene0 5
 
 render:
-	rm *.png; \
+	rm *.png *.jpg *.mp4; \
 	povray *.ini
 
 update_environment:
@@ -13,3 +12,4 @@ render_on_server:
 	rsync -r -v /home/vngu/uni/ivc/scenes/scene0/* grapefruit:/root/data/povray/ivc/scenes/scene0
 	ssh grapefruit "cd /root/data/povray/ivc/scenes/scene0 && make render && make ffmpeg"
 	rsync -r -v  grapefruit:/root/data/povray/ivc/scenes/scene0/*mp4 .
+	vlc scene0_animation.mp4
