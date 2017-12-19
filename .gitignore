@@ -2,3 +2,4 @@ scenes/**/*.png
 *.avi
 *.mp4
 *.swp
+*.pov-state
