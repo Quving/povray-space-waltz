@@ -4,3 +4,9 @@ ffmpeg:
 
 render:
 	povray test-bezier.ini
+
+clean:
+	rm *.png
+
+spline-demo:
+	povray +L/usr/share/fonts/steam-fonts spline_demo.pov
