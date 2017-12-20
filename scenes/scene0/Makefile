@@ -1,9 +1,9 @@
 ffmpeg:
-	bash animate.sh scene0 5
+	bash animate.sh scene0 13
 
 render:
 	rm *.png *.jpg *.mp4; \
-	povray *.ini
+	povray *.ini Final_Frame=500
 
 update_environment:
 	rsync -r -v /home/vngu/uni/ivc  grapefruit:/root/data/povray
