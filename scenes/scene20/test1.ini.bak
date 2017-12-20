@@ -1,0 +1,6 @@
+Input_File_Name="test1.pov"
+Output_File_Name="test1.png"
+Initial_Frame=1
+Final_Frame=200
+Initial_Clock=0
+Final_Clock=1
