@@ -7,6 +7,7 @@ global_settings {
 }
 
 #include "colors.inc"
+#include "math.inc"
 
 camera {
     location <0,0,-10>
@@ -62,40 +63,6 @@ object {
     translate Test_Spline(Time())
 }
 
-#macro Trace_Spline(Input_Spline, Input_Steps, Input_Size)
-    #local Start = initial_clock * Scene_Length;
-    #if (final_clock = 0)
-        #local End = 1 * Scene_Length;
-    #else
-        #local End = final_clock * Scene_Length;
-    #end
-    #local Step_Size = ((End - Start) / Input_Steps);
-    #local Current = Start;
-    union {
-        #while (Current < End)
-            sphere { <0, 0, 0>, Input_Size
-                texture {
-                    pigment { color Pink }
-                    finish { ambient 0.15 diffuse 0.85 phong 1 }
-                }
-                translate Input_Spline(Current)
-            }
-            #local Next = Current + Step_Size;
-            #debug "========================================== "
-            #debug concat(str(Current,0,3), " ", str(Next,0,3), "\n")
-            cylinder{ Input_Spline(Current), Input_Spline(Next), Input_Size * 0.5
-                pigment { color Pink}
-            }
-            #local Current = Next;
-        #end
-        sphere { <0, 0, 0>, Input_Size
-            texture {
-                pigment { color Pink }
-                finish { ambient 0.15 diffuse 0.85 phong 1 }
-            }
-            translate Input_Spline(End)
-        }
-    }
-#end
+#include "trace_spline.inc"
 
-Trace_Spline(Test_Spline, 15, 0.5)
+Trace_Spline(Test_Spline, 40, 0.5)
