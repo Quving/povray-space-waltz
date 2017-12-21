@@ -21,46 +21,59 @@ light_source {
     point_at <0,0,1>
 }
 
-#declare Arm_Seg_Red = cylinder {
-    <0, 0, 0>, <0, 6, 0>, 1*0.5
-    pigment { color Red }
-}
-
-#declare Arm_Seg_Green = cylinder {
-    <0, 0, 0>, <0, 4, 0>, 0.8*0.5
-    pigment { color Green}
-}
-
-#declare Arm_Seg_Blue = cylinder {
-    <0, 0, 0>, <0, 2, 0>, 0.6*0.5
-    pigment { color Blue}
-}
-
-union {
-    object { Arm_Seg_Red }
+#macro Arm()
     union {
-        object { Arm_Seg_Green }
-        union {
-            object { Arm_Seg_Blue }
-            rotate z*1440*clock
-            translate <0,4,0>
-        }
-        rotate z*720*clock
-        translate <0,6,0>
-    }
-    rotate z*360*clock
-}
+        #local Arm_Seg_Red_Length = <0, 6, 0>;
+        #local Arm_Seg_Green_Length = <0, 4, 0>;
+        #local Arm_Seg_Blue_Length = <0, 2, 0>;
 
-/*
-// arm
-object {
-    Arm_Seg_1
-    union {
-        Arm_Seg_2
         object {
-            Arm_Seg_3
+            cylinder {
+                0, Arm_Seg_Red_Length, 1*0.5
+                pigment { color Red }
+            }
         }
+
+        union {
+            object {
+                cylinder {
+                    0, Arm_Seg_Green_Length, 0.8*0.5
+                    pigment { color Green }
+                }
+            }
+
+            union {
+                object {
+                    cylinder {
+                        0, Arm_Seg_Blue_Length, 0.6*0.5
+                        pigment { color Blue }
+                    }
+                }
+
+                rotate Arm_Seg_Blue_Rotation
+                translate Arm_Seg_Green_Length
+            }
+
+            rotate Arm_Seg_Green_Rotation
+            translate Arm_Seg_Red_Length
+        }
+
+        rotate Arm_Seg_Red_Rotation
     }
-    translate <0,0,4
+#end
+
+object {
+    #local Arm_Seg_Red_Rotation = z*15;
+    #local Arm_Seg_Green_Rotation = z*30;
+    #local Arm_Seg_Blue_Rotation = z*45;
+
+    Arm()
 }
-*/
+
+object {
+    #local Arm_Seg_Red_Rotation = z*-30;
+    #local Arm_Seg_Green_Rotation = z*-45;
+    #local Arm_Seg_Blue_Rotation = z*15;
+
+    Arm()
+}
