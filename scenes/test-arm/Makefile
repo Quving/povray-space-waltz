@@ -2,8 +2,7 @@ PWD_WO_HOME = $(shell pwd | sed -e "s/\/home\/[a-z]*\///g")
 SCENE_NAME = $(shell pwd | sed -e "s/.*\///g")
 
 ffmpeg:
-	bash animate.sh $(SCENE_NAME) 5
-	# rm *png
+	bash animate.sh $(SCENE_NAME) 6
 
 render:
 	povray *.ini
@@ -23,6 +22,9 @@ render_on_server:
 
 test:
 	povray $(SCENE_NAME).ini
+
+clean:
+	rm *.png
 
 foo:
 	echo $(PWD_WO_HOME)

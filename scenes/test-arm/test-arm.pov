@@ -9,10 +9,9 @@
 
 camera {
     perspective
-    location <0,0,-20>
+    location <0,0,-30>
     look_at <0,0,1>
-    right 16/9*x
-    translate <0,3,0>
+    right x*(image_width/image_height)
 }
 
 light_source {
@@ -43,13 +42,13 @@ union {
         object { Arm_Seg_Green }
         union {
             object { Arm_Seg_Blue }
-            rotate z*15
+            rotate z*1440*clock
             translate <0,4,0>
         }
-        rotate z*30
+        rotate z*720*clock
         translate <0,6,0>
     }
-    rotate z*60
+    rotate z*360*clock
 }
 
 /*
