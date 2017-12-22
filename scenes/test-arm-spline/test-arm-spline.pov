@@ -7,12 +7,21 @@
 
 #include "space_wallpaper.inc" // background
 
-camera {
+declare Camera_1 = camera {
     perspective
     location <0,0,-30>
     look_at <0,0,1>
     right x*(image_width/image_height)
 }
+
+declare Camera_2 = camera {
+    perspective
+    location <1, 1,-1> * 15
+    look_at <0,0,0>
+    right x*(image_width/image_height)
+}
+
+camera { Camera_2 }
 
 light_source {
     <5,2,2>
@@ -67,6 +76,7 @@ object {
     #local Arm_Seg_Red_Rotation = Arm_Seg_Red_Rotation_Spline(Time());
     #local Arm_Seg_Green_Rotation = Arm_Seg_Green_Rotation_Spline(Time());;
     #local Arm_Seg_Blue_Rotation = Arm_Seg_Blue_Rotation_Spline(Time());;
+    #local Debug_Joints = true;
 
     Arm()
 }
