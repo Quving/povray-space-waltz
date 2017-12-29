@@ -1,3 +1,53 @@
+#macro Time()
+    Scene_Length * clock
+#end // macro
+
+#macro Trace_Spline(Input_Spline, Input_Steps, Input_Size)
+    #local Start = initial_clock * Scene_Length;
+    #if (final_clock = 0)
+        #local End = 1 * Scene_Length;
+    #else
+        #local End = final_clock * Scene_Length;
+    #end // if
+    #local Step_Size = ((End - Start) / Input_Steps);
+    #local Current = Start;
+
+    union {
+        #while (Current < End)
+            // create sphere
+            sphere {
+                Input_Spline(Current), Input_Size
+                texture {
+                    pigment { color Pink }
+                    finish { ambient 0.15 diffuse 0.85 phong 1 }
+                }
+            }
+
+            #local Next = Current + Step_Size;
+
+            // create line between current and next sphere
+            #if (VEq(Input_Spline(Current), Input_Spline(Next)))
+            #else
+                cylinder {
+                    Input_Spline(Current), Input_Spline(Next), Input_Size * 0.5
+                    pigment { color Pink }
+                }
+            #end // if
+
+            #local Current = Next;
+        #end // while
+
+        // create last sphere
+        sphere {
+            Input_Spline(End), Input_Size
+            texture {
+                pigment { color Pink }
+                finish { ambient 0.15 diffuse 0.85 phong 1 }
+            }
+        }
+    }
+#end // macro
+
 #macro Axis(Axis_Len, Color)
 // create an arrow along the x axis with length Axis_Len and color Color
     #local Finish = finish {
@@ -61,56 +111,3 @@
 #macro Draw_Debug_Axis(Axis_Len)
     AxisXYZ(Axis_Len, Axis_Len, Axis_Len)
 #end // macro
-
-#macro Arm()
-    #local Arm_Seg_Red_Length = 6;
-    #local Arm_Seg_Green_Length = 4;
-    #local Arm_Seg_Blue_Length = 2;
-
-    union {
-        object {
-            cylinder {
-                0, y * Arm_Seg_Red_Length, 0.5
-                pigment { color Red }
-            }
-        }
-
-        #if (Debug_Joints)
-            Draw_Debug_Axis(Arm_Seg_Red_Length)
-        #end
-
-        union {
-            object {
-                cylinder {
-                    0, y * Arm_Seg_Green_Length, 0.4
-                    pigment { color Green }
-                }
-            }
-
-            #if (Debug_Joints)
-                Draw_Debug_Axis(Arm_Seg_Green_Length)
-            #end
-
-            union {
-                object {
-                    cylinder {
-                        0, y * Arm_Seg_Blue_Length, 0.3
-                        pigment { color Blue }
-                    }
-                }
-
-                #if (Debug_Joints)
-                    Draw_Debug_Axis(Arm_Seg_Blue_Length)
-                #end
-
-                rotate Arm_Seg_Blue_Rotation
-                translate y * Arm_Seg_Green_Length
-            }
-
-            rotate Arm_Seg_Green_Rotation
-            translate y * Arm_Seg_Red_Length
-        }
-
-        rotate Arm_Seg_Red_Rotation
-    }
-#end
