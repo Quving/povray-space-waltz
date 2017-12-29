@@ -60,7 +60,7 @@ object {
 
 sphere {
     <12*10000, -4*12000, 6*10000>, 130000
-    rotate <clock*30, 0, 0>
+    rotate <clock*15, 0, 0>
     pigment { rgb <0,0.75,0.75> }
     texture{
         pigment{ bozo turbulence 1.75
