@@ -1,4 +1,5 @@
 scenes/**/*.png
+scenes/**/*.jpg
 tests/**/*.png
 *.avi
 *.mp4
