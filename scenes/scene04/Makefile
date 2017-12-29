@@ -2,7 +2,7 @@ ffmpeg:
 	bash animate.sh scene04 5
 render:
 	rm *.png *.jpg *.mp4; \
-	    povray *.ini Final_Frame=10
+	    povray *.ini Final_Frame=50
 render_on_server:
 	ssh grapefruit "cd /root/data/povray/ivc/scenes/scene04 && git reset --hard && git pull origin master" && \
 	    rsync -r -v $(shell pwd)/* grapefruit:/root/data/povray/ivc/scenes/scene04 && \
