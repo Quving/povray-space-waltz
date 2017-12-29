@@ -42,7 +42,6 @@ spline {
 
 object {
     orion_
-    /* rotate <1*sin(2*pi*clock), 1*sin(2*pi*clock)+180, 5*sin(2*pi*clock) + 0> */
     rotate < 180,90, 0>
     translate orion_spline(clock)
 }
@@ -59,7 +58,7 @@ object {
 
 sphere {
     <0, -7*12000, 11*10000>, 130000
-    rotate <clock*5, 0, 0>
+    rotate <clock*15, 0, 0>
     pigment { rgb <0,0.75,0.75> }
     texture{
         pigment{ bozo turbulence 1.75
