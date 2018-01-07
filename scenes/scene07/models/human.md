@@ -1,0 +1,30 @@
+# Strucure of a human
+
+- Human (object)
+  - Torso
+    - Head
+      - ...
+    - LeftUpperArm
+      - LeftLowerArm
+        - LeftHand
+          - LeftThumbProximalPhalanx
+          - LeftThumbDistalPhalanx
+          - LeftIndexFirstPhalanx
+          - LeftIndexMiddlePhalanx
+          - LeftIndexDistalPhalanx
+          - LeftMiddleFirstPhalanx
+          - LeftMiddleMiddlePhalanx
+          - LeftMiddleDistalPhalanx
+          - LeftRingFirstPhalanx
+          - LeftRingMiddlePhalanx
+          - LeftRingDistalPhalanx
+          - LeftPinkyFirstPhalanx
+          - LeftPinkyMiddlePhalanx
+          - LeftPinkyDistalPhalanx
+    - RightUpperArm
+      - ...
+    - LeftUpperLeg
+      - LeftLowerLeg
+        - LeftFoot
+    - RightUpperLeg
+      - ...
