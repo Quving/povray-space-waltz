@@ -28,3 +28,22 @@
         - LeftFoot
     - RightUpperLeg
       - ...
+
+## take 2 (simpler)
+
+- Human (object)
+  - Torso (local 0,0,0 at the pelvis)
+    - Neck
+      - Head
+    - LeftArm
+      - LeftLowerArm
+        - LeftHand
+    - RightArm
+      - RightLowerArm
+        - RightHand
+    - LeftLeg
+      - LeftLowerLeg
+        - LeftFoot
+    - RightLeg
+      - RightLowerLeg
+        - RightFoot
