@@ -1,10 +1,10 @@
 #macro Human()
     /* comment */
 
-    // define default rotation vectors, if they are not defined in
+    // set default rotation vectors, if they are not defined in
     // the scope in which this macro is being called
-
     #ifndef (TORSO_ROT) #local TORSO_ROT = 0; #end
+    #ifndef (HEAD_ROT) #local HEAD_ROT = 0; #end
     #ifndef (LEFT_ARM_ROT) #local LEFT_ARM_ROT = 0; #end
     #ifndef (LEFT_LOWER_ARM_ROT) #local LEFT_LOWER_ARM_ROT = 0; #end
     #ifndef (LEFT_HAND_ROT) #local LEFT_HAND_ROT = 0; #end
@@ -17,12 +17,12 @@
     #ifndef (RIGHT_LEG_ROT) #local RIGHT_LEG_ROT = 0; #end
     #ifndef (RIGHT_LOWER_LEG_ROT) #local RIGHT_LOWER_LEG_ROT = 0; #end
     #ifndef (RIGHT_FOOT_ROT) #local RIGHT_FOOT_ROT = 0; #end
-    // ...
 
-    // helper to make the code more readable
+    // helper variables to make the code more readable
     #local LEFT = true;
     #local RIGHT = false;
 
+    // helper object to prevent warnings regarding to few objects in CSGs
     #local NULL = sphere {
         0, 0.0000001
         pigment {
@@ -92,13 +92,6 @@
                 rotate RIGHT_LEG_ROT
             #end
         }
-
-        // - LeftLeg
-        //   - LeftLowerLeg
-        //     - LeftFoot
-        // - RightLeg
-        //   - RightLowerLeg
-        //     - RightFoot
     #end
 
     #macro Arm(side)
@@ -162,17 +155,21 @@
 
     #macro Head()
         #local NECK_HEIGHT = 0.1;
+
         union {
             cylinder {
                 0, <0, NECK_HEIGHT, 0>, 0.1
                 texture { TEXTURE }
             }
+
             cylinder {
                 0, <0, 0.3, 0>, 0.2
                 texture { TEXTURE }
                 scale <1, 1, 1>
                 translate y * NECK_HEIGHT
             }
+
+            rotate HEAD_ROT
         }
     #end
 
@@ -190,7 +187,6 @@
 
                 object {
                     Head()
-                    // TODO neck
                     translate y * TORSO_HEIGHT
                 }
 
@@ -214,7 +210,6 @@
                     //...
                     rotate y * -90
                     rotate x * 90
-                    // rotate z * 90
                     translate x * TORSO_WIDTH * 0.3
                 }
 
