@@ -1,3 +1,5 @@
+#include "util.inc"
+
 #macro Human()
     /* comment */
 
@@ -68,6 +70,7 @@
 
                     NULL
 
+                    // apply rotation of the joint to customize the pose
                     #if (side = LEFT)
                         rotate LEFT_FOOT_ROT
                     #else
@@ -77,6 +80,7 @@
                     translate x * LOWER_LEG_LENGTH
                 }
 
+                // apply rotation of the joint to customize the pose
                 #if (side = LEFT)
                     rotate LEFT_LOWER_LEG_ROT
                 #else
@@ -86,6 +90,7 @@
                 translate x * UPPER_LEG_LENGTH
             }
 
+            // apply rotation of the joint to customize the pose
             #if (side = LEFT)
                 rotate LEFT_LEG_ROT
             #else
@@ -127,6 +132,7 @@
                     }
                     */
 
+                    // apply rotation of the joint to customize the pose
                     #if (side = LEFT)
                         rotate LEFT_HAND_ROT
                     #else
@@ -136,6 +142,7 @@
                     translate x * LOWER_ARM_LENGTH
                 }
 
+                // apply rotation of the joint to customize the pose
                 #if (side = LEFT)
                     rotate LEFT_LOWER_ARM_ROT
                 #else
@@ -145,6 +152,7 @@
                 translate x * UPPER_ARM_LENGTH
             }
 
+            // apply rotation of the joint to customize the pose
             #if (side = LEFT)
                 rotate LEFT_ARM_ROT
             #else
@@ -192,14 +200,12 @@
 
                 object { // left arm
                     Arm(LEFT)
-                    //...
                     translate x * TORSO_WIDTH * 0.5
                     translate y * TORSO_HEIGHT * 0.9
                 }
 
                 object { // right arm
                     Arm(RIGHT)
-                    //...
                     rotate z * 180
                     translate x * TORSO_WIDTH * -0.5
                     translate y * TORSO_HEIGHT * 0.9
@@ -207,7 +213,6 @@
 
                 object { // left leg
                     Leg(LEFT)
-                    //...
                     rotate y * -90
                     rotate x * 90
                     translate x * TORSO_WIDTH * 0.3
@@ -215,7 +220,6 @@
 
                 object { // right leg
                     Leg(RIGHT)
-                    //...
                     rotate y * -90
                     rotate x * 90
                     translate x * TORSO_WIDTH * -0.3
