@@ -36,7 +36,11 @@
     // in which this macro is being called
     #ifndef (TEXTURE)
         #local TEXTURE = texture {
-            pigment { color White }
+            #if (DEBUG_ALL_JOINTS)
+                pigment { color rgbf <0.97, 0.99, 0.98, 0.9> }
+            #else
+                pigment { color White }
+            #end
             finish {
                 ambient 0.1
                 diffuse 0.85
@@ -103,59 +107,69 @@
         #local UPPER_ARM_LENGTH = 0.4;
         #local LOWER_ARM_LENGTH = 0.4;
 
-        union {
-            cylinder { // UpperArm
-                0, x * UPPER_ARM_LENGTH, 0.1
-                texture { TEXTURE }
-            }
-
-            union {
-                cylinder { // LowerArm
-                    0, x * LOWER_ARM_LENGTH, 0.08
+        union { // of the whole arm and the debug axis at the shoulder (if enabled)
+            union { // UpperArm, LowerArm and Hand
+                cylinder { // UpperArm
+                    0, x * UPPER_ARM_LENGTH, 0.1
                     texture { TEXTURE }
                 }
 
-                union { // Hand
-                    box {
-                        0, <0.24, 0.12, 0.2>
+                union { // LowerArm and Hand
+                    cylinder { // LowerArm
+                        0, x * LOWER_ARM_LENGTH, 0.08
                         texture { TEXTURE }
-                        translate -<0, 0.06, 0.1>
                     }
 
-                    NULL
+                    union { // Hand
+                        box {
+                            0, <0.24, 0.12, 0.2>
+                            texture { TEXTURE }
+                            translate -<0, 0.06, 0.1>
+                        }
 
-                    /*
-                    box {
-                        0, <0.09, 0.12, 0.04>
-                        texture { TEXTURE }
-                        translate <0, 0.06, 0.1>*3
+                        NULL
+
+                        /*
+                        box {
+                            0, <0.09, 0.12, 0.04>
+                            texture { TEXTURE }
+                            translate <0, 0.06, 0.1>*3
+                        }
+                        */
+
+                        // apply rotation of the joint to customize the pose
+                        #if (side = LEFT)
+                            rotate LEFT_HAND_ROT
+                        #else
+                            rotate RIGHT_HAND_ROT
+                        #end
+
+                        translate x * LOWER_ARM_LENGTH
                     }
-                    */
 
                     // apply rotation of the joint to customize the pose
                     #if (side = LEFT)
-                        rotate LEFT_HAND_ROT
+                        rotate LEFT_LOWER_ARM_ROT
                     #else
-                        rotate RIGHT_HAND_ROT
+                        rotate RIGHT_LOWER_ARM_ROT
                     #end
 
-                    translate x * LOWER_ARM_LENGTH
+                    translate x * UPPER_ARM_LENGTH
                 }
-
-                // apply rotation of the joint to customize the pose
-                #if (side = LEFT)
-                    rotate LEFT_LOWER_ARM_ROT
-                #else
-                    rotate RIGHT_LOWER_ARM_ROT
-                #end
-
-                translate x * UPPER_ARM_LENGTH
             }
 
-            // apply rotation of the joint to customize the pose
+            // add axis that move and rotate with the arm
+            #if (DEBUG_ALL_JOINTS)
+                Draw_Debug_Axis(UPPER_ARM_LENGTH * 0.8)
+            #else
+                NULL
+            #end
+
+            // apply rotation of the joint (and debug axis) at the shoulder
             #if (side = LEFT)
                 rotate LEFT_ARM_ROT
             #else
+                rotate x * 180
                 rotate RIGHT_ARM_ROT
             #end
         }
@@ -207,6 +221,7 @@
                 object { // right arm
                     Arm(RIGHT)
                     rotate z * 180
+                    rotate x * 180
                     translate x * TORSO_WIDTH * -0.5
                     translate y * TORSO_HEIGHT * 0.9
                 }

@@ -68,7 +68,8 @@
                 finish { Finish }
             }
             texture {
-                pigment { color White }
+                // pigment { color White }
+                pigment { color Color }
                 finish { Finish }
             }
         }
