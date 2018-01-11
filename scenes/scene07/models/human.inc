@@ -52,6 +52,7 @@
     #macro Leg(side)
         #local UPPER_LEG_LENGTH = 0.4;
         #local LOWER_LEG_LENGTH = 0.4;
+        #local FOOT_LENGTH = 0.24;
 
         union {
             cylinder { // UpperLeg
@@ -67,12 +68,16 @@
 
                 union { // Foot
                     box {
-                        0, <0.24, 0.12, 0.2>
+                        0, <FOOT_LENGTH, 0.12, 0.2>
                         texture { TEXTURE }
                         translate -<0, 0.06, 0.1>
                     }
 
-                    NULL
+                    #if (DEBUG_ALL_JOINTS)
+                        Draw_Debug_Axis(FOOT_LENGTH * 0.8)
+                    #else
+                        NULL
+                    #end
 
                     // apply rotation of the joint to customize the pose
                     #if (side = LEFT)
@@ -84,6 +89,12 @@
                     translate x * LOWER_LEG_LENGTH
                 }
 
+                #if (DEBUG_ALL_JOINTS)
+                    Draw_Debug_Axis(LOWER_LEG_LENGTH * 0.8)
+                #else
+                    NULL
+                #end
+
                 // apply rotation of the joint to customize the pose
                 #if (side = LEFT)
                     rotate LEFT_LOWER_LEG_ROT
@@ -93,6 +104,12 @@
 
                 translate x * UPPER_LEG_LENGTH
             }
+
+            #if (DEBUG_ALL_JOINTS)
+                Draw_Debug_Axis(UPPER_LEG_LENGTH * 0.8)
+            #else
+                NULL
+            #end
 
             // apply rotation of the joint to customize the pose
             #if (side = LEFT)
@@ -248,6 +265,12 @@
                     rotate x * 90
                     translate x * TORSO_WIDTH * -0.3
                 }
+
+                #if (DEBUG_ALL_JOINTS)
+                    Draw_Debug_Axis(TORSO_HEIGHT * 0.4)
+                #else
+                    NULL
+                #end
             }
         }
     #end
