@@ -35,13 +35,15 @@ camera {
     sky < 0, 1, 0>
     look_at camera_spline(clock)
 }
-
 //PoseRay default Light attached to the camera
 light_source {
     <0,100,0>
     color rgb <1,1,1>*1.6
     parallel
     point_at <3.33066907387547E-16,1.33226762955019E-15,0>
+    rotate <0,0,1.26346700010074> //roll
+    rotate <-45.2086195197426,0,0> //elevation
+    rotate <0,42.8371672265632,0> //rotation
 }
 
 background {
@@ -88,4 +90,4 @@ sphere {
 
 //restore the version used outside this file
 #version Temp_version;
-//==================================================
+/
