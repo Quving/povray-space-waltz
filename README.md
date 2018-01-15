@@ -4,6 +4,15 @@
 
 [![](http://img.youtube.com/vi/xyjOjT8d8RI/0.jpg)](https://www.youtube.com/watch?v=xyjOjT8d8RI)
 
+## Termine
+
+- **29. Januar 2018**
+  - Eine CD mit dem fertigen Film (Quicktime-Movie oder Motion-JPG) und den POV-Ray-Skripten.
+  - Ein Poster für die Fachbereichs-EXPO. Das Poster sollte mindestens die Namen der Beteiligten, den Titel des Films, den Namen der Lehrveranstaltung und die Angabe Fachbereichs Informatik der Universität Hamburg sowie des aktuellen Semesters enthalten.
+
+- **31. Januar 2018**
+  - Eine Dokumentation, in der Sie die Verwendung der eingesetzten Modellierungswerkzeuge, Transformationen usw. erläutern.
+
 ## Todo
 
 - [x] get a topic: 2001: A Space Odyssey
