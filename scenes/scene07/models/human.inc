@@ -203,6 +203,7 @@
 
     #macro Head()
         #local NECK_HEIGHT = 0.1;
+        #local HEAD_HEIGHT = 0.3;
 
         union {
             cylinder {
@@ -210,10 +211,27 @@
                 texture { TEXTURE }
             }
 
+            union {
             cylinder {
-                0, <0, 0.3, 0>, 0.2
+                    0, <0, HEAD_HEIGHT, 0>, 0.2
                 texture { TEXTURE }
                 scale <1, 1, 1>
+                }
+
+                sphere { // right eye
+                    -z * 0.2, 0.025
+                    texture { TEXTURE }
+                    translate y * HEAD_HEIGHT * 0.6
+                    rotate y * 20
+                }
+
+                sphere { // left eye
+                    -z * 0.2, 0.025
+                    texture { TEXTURE }
+                    translate y * HEAD_HEIGHT * 0.6
+                    rotate y * -20
+                }
+
                 translate y * NECK_HEIGHT
             }
 
