@@ -49,6 +49,12 @@
 - [Scene 19](https://www.youtube.com/embed/xyjOjT8d8RI?start=289&end=300) : Innenansicht Orion, Cockpit: Station richtig ausgerichtet direkt vor Frontscheibe, Orion im Anflug
 - [Scene 20](https://www.youtube.com/embed/xyjOjT8d8RI?start=300&end=321) : Orion direkt vor Hangar; Kamera fliegt nah an der Station vorbei bis Station außer Sicht
 
+#### ordered by setting
+
+Weltraum (223s): 1, 2, 3, 4, 5, 6, 13, 14, 17, 18, 20
+Orion Passagierraum (komplexe Animation) (70s): 7, 8, 9, 10, 11, 12
+Orion Cockpit (28s): 15, 16, 19
+
 ### Rendering results
 
 Can be found [here](https://www.dropbox.com/sh/xzp3uizmcah1yaf/AAC9UrARoHbLAg4TAS3cS37Oa?dl=0).
