@@ -52,7 +52,7 @@
     #macro Leg(side)
         #local UPPER_LEG_LENGTH = 0.4;
         #local LOWER_LEG_LENGTH = 0.4;
-        #local FOOT_LENGTH = 0.24;
+        #local FOOT_LENGTH = 0.3;
 
         union {
             cylinder { // UpperLeg
@@ -68,9 +68,9 @@
 
                 union { // Foot
                     box {
-                        0, <FOOT_LENGTH, 0.12, 0.2>
+                        0, <0.12, -FOOT_LENGTH, 0.2>
                         texture { TEXTURE }
-                        translate -<0, 0.06, 0.1>
+                        translate <0, 0.08, -0.1>
                     }
 
                     #if (DEBUG_ALL_JOINTS)
@@ -212,10 +212,10 @@
             }
 
             union {
-            cylinder {
+                cylinder {
                     0, <0, HEAD_HEIGHT, 0>, 0.2
-                texture { TEXTURE }
-                scale <1, 1, 1>
+                    texture { TEXTURE }
+                    scale <1, 1, 1>
                 }
 
                 sphere { // right eye
