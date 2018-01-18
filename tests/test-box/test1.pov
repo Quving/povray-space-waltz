@@ -8,6 +8,7 @@ global_settings {
 
 camera {
     location <1, 1, -1> * 3
+    right 16/9 * x
     look_at <0,0,0>
 }
 
