@@ -16,9 +16,10 @@
         texture { Simple_Color(Black) }
     }
 
+    // TODO make tip more detailed
     cone {
         x * CYLINDER_LENGTH, 0.5, x * (CYLINDER_LENGTH + CONE_LENGTH), 0.1
-        texture { Simple_Color(Gold) }
+        texture { Simple_Color(Gold) } // TODO make texture look more metallic
     }
 
     #for (i, 0, 2)

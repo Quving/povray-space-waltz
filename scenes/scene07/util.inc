@@ -117,3 +117,15 @@
 #macro Draw_Debug_Axis(Axis_Len)
     AxisXYZ(Axis_Len, Axis_Len, Axis_Len)
 #end // macro
+
+#macro Mirror_X()
+    scale <-1, 1, 1>
+#end
+
+#macro Mirror_Y()
+    scale <1, -1, 1>
+#end
+
+#macro Mirror_Z()
+    scale <1, 1, -1>
+#end
