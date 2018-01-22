@@ -37,7 +37,7 @@
     #ifndef (TEXTURE)
         #local TEXTURE = texture {
             #if (DEBUG_ALL_JOINTS)
-                pigment { color rgbf <0.97, 0.99, 0.98, 0.9> }
+                pigment { color rgbf <0.5, 0.5, 0.5, 0.9> }
             #else
                 pigment { color White }
             #end
