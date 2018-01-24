@@ -14,47 +14,53 @@
     #local VAR_WALKWAY_LENGTH = 10;
     #local VAR_WALKWAY_HEIGHT = 0.4;
 
-    #local WALKWAY = box {
-        0, <VAR_WALKWAY_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
-        texture { Simple_Color(White) }
-        translate -x * VAR_WALKWAY_WIDTH / 2 // center on the x axis
-    }
+    #macro Walkway()
+        box {
+            0, <VAR_WALKWAY_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
+            texture { Simple_Color(White) }
+            translate -x * VAR_WALKWAY_WIDTH / 2 // center on the x axis
+        }
+    #end // macro Walkway
 
-    #local FLOOR = plane {
-        y, 0
-        texture { Simple_Color(White) }
-    }
+    #macro Floor()
+        plane {
+            y, 0
+            texture { Simple_Color(White) }
+        }
+    #end // macro Floor
 
-    #local SEAT = union {
+    #macro Seat()
         #local VAR_SEATING_SURFACE_WIDTH = 0.7; // human torso is 0.6 wide
         #local VAR_SEATING_SURFACE_LENGTH = 0.4;
         #local VAR_ARMREST_HEIGHT = 0.3;
         #local VAR_ARMREST_LENGTH = 0.3;
 
-        box { // seating surface
-            0, <VAR_SEATING_SURFACE_WIDTH, 0.1, VAR_SEATING_SURFACE_LENGTH>
-            translate -x * VAR_SEATING_SURFACE_WIDTH
+        union {
+            box { // seating surface
+                0, <VAR_SEATING_SURFACE_WIDTH, 0.1, VAR_SEATING_SURFACE_LENGTH>
+                translate -x * VAR_SEATING_SURFACE_WIDTH
+            }
+
+            box { // back rest
+                0, <VAR_SEATING_SURFACE_WIDTH, 1, 0.1>
+                translate -x * VAR_SEATING_SURFACE_WIDTH
+                translate z * VAR_SEATING_SURFACE_LENGTH
+            }
+
+            box { // armrest
+                0, <0.1, VAR_ARMREST_HEIGHT, VAR_ARMREST_LENGTH>
+                translate -x * VAR_SEATING_SURFACE_WIDTH
+                translate z * 0.1
+            }
+
+            texture { Simple_Color(White) }
+
+            // translate x * VAR_SEATING_SURFACE_WIDTH
+            // translate y * VAR_WALKWAY_HEIGHT
+
+            translate x * -1
         }
-
-        box { // back rest
-            0, <VAR_SEATING_SURFACE_WIDTH, 1, 0.1>
-            translate -x * VAR_SEATING_SURFACE_WIDTH
-            translate z * VAR_SEATING_SURFACE_LENGTH
-        }
-
-        box { // armrest
-            0, <0.1, VAR_ARMREST_HEIGHT, VAR_ARMREST_LENGTH>
-            translate -x * VAR_SEATING_SURFACE_WIDTH
-            translate z * 0.1
-        }
-
-        texture { Simple_Color(White) }
-
-        // translate x * VAR_SEATING_SURFACE_WIDTH
-        // translate y * VAR_WALKWAY_HEIGHT
-
-        translate x * -1
-    }
+    #end // macro Seat
 
     // ceiling above walkway (with lights)
     // tilted ceiling above seats (with lights)
@@ -63,11 +69,7 @@
     // front and back wall
     // door
 
-    NULL
-    NULL
-    NULL
-
-    WALKWAY
-    // FLOOR
-    // SEAT
+    Walkway()
+    Floor()
+    Seat()
 }
