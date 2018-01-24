@@ -3,6 +3,7 @@ ffmpeg:
 
 render:
 	povray test.ini
+	povray test-xy.ini
 
 clean:
 	rm *.png *.mp4

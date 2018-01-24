@@ -145,3 +145,15 @@ plane {
     no_shadow
 }
 #end
+
+#macro Centered_Box(Box_Size, Box_Location, Color)
+box {
+    0, Box_Size
+    texture {
+        pigment { color Color }
+        finish { ambient 0.1 diffuse 1 phong 0 }
+    }
+    translate -Box_Size / 2
+    translate Box_Location
+}
+#end // macro Centered_Box
