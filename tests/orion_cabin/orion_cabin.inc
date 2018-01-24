@@ -48,8 +48,6 @@
             translate z * 0.1
         }
 
-        NULL
-
         texture { Simple_Color(White) }
 
         // translate x * VAR_SEATING_SURFACE_WIDTH
@@ -65,7 +63,11 @@
     // front and back wall
     // door
 
+    NULL
+    NULL
+    NULL
+
     WALKWAY
     // FLOOR
-    SEAT
+    // SEAT
 }

@@ -3,6 +3,7 @@
     pigment {
         rgbft 1
     }
+    no_shadow
 }
 
 #macro Time()
