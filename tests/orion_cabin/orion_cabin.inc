@@ -20,7 +20,7 @@
     #macro Walkway()
         box {
             0, <VAR_WALKWAY_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
-            texture { Simple_Color(White) }
+            texture { Simple_Color(Grey) }
             translate -x * VAR_WALKWAY_WIDTH / 2 // center on the x axis
         }
     #end // macro Walkway
@@ -28,7 +28,7 @@
     #macro Floor()
         plane {
             y, 0
-            texture { Simple_Color(White) }
+            texture { Simple_Color(Grey) }
         }
     #end // macro Floor
 
@@ -85,7 +85,7 @@
             0, <VAR_WALKWAY_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
             texture { Simple_Color(Grey) }
             translate -x * VAR_WALKWAY_WIDTH / 2 // center on the x axis
-            translate y * VAR_CABIN_HEIGHT
+            translate y * (VAR_CABIN_HEIGHT + VAR_WALKWAY_HEIGHT)
         }
 
         // TODO lights
@@ -97,7 +97,10 @@
     // front and back wall
     // door
 
-    // Walkway()
-    // Floor()
-    Seat()
+    /* centered parts */
+    Floor()
+    Walkway()
+    Ceiling_Above_Walkway()
+
+    // Seat()
 }
