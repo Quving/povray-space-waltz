@@ -34,31 +34,46 @@
         #local VAR_SEATING_SURFACE_LENGTH = 0.4;
         #local VAR_ARMREST_HEIGHT = 0.3;
         #local VAR_ARMREST_LENGTH = 0.3;
+        #local VAR_ARMREST_WIDTH = 0.1;
+        #local VAR_BASE_HEIGHT = 0.3;
+        #local VAR_BASE_WIDTH = 0.2;
 
         union {
-            box { // seating surface
-                0, <VAR_SEATING_SURFACE_WIDTH, 0.1, VAR_SEATING_SURFACE_LENGTH>
-                translate -x * VAR_SEATING_SURFACE_WIDTH
+            union { // seating surface and back rest
+                box { // seating surface
+                    0, <VAR_SEATING_SURFACE_WIDTH, 0.1, VAR_SEATING_SURFACE_LENGTH>
+                }
+
+                box { // back rest
+                    0, <VAR_SEATING_SURFACE_WIDTH, 1, 0.1>
+                    translate z * VAR_SEATING_SURFACE_LENGTH
+                }
+
+                translate -x * VAR_SEATING_SURFACE_WIDTH / 2
             }
 
-            box { // back rest
-                0, <VAR_SEATING_SURFACE_WIDTH, 1, 0.1>
-                translate -x * VAR_SEATING_SURFACE_WIDTH
-                translate z * VAR_SEATING_SURFACE_LENGTH
+            union { // armrests
+                box { // left armrest
+                    0, <VAR_ARMREST_WIDTH, VAR_ARMREST_HEIGHT, VAR_ARMREST_LENGTH>
+                    translate x * VAR_SEATING_SURFACE_WIDTH / 2
+                }
+
+                box { // right armrest
+                    0, <-0.1, VAR_ARMREST_HEIGHT, VAR_ARMREST_LENGTH>
+                    translate -x * VAR_SEATING_SURFACE_WIDTH / 2
+                }
+
+                translate z * (VAR_SEATING_SURFACE_LENGTH - VAR_ARMREST_LENGTH)
             }
 
-            box { // armrest
-                0, <0.1, VAR_ARMREST_HEIGHT, VAR_ARMREST_LENGTH>
-                translate -x * VAR_SEATING_SURFACE_WIDTH
-                translate z * 0.1
+            box { // base
+                0, <VAR_BASE_WIDTH, -VAR_BASE_HEIGHT, VAR_SEATING_SURFACE_LENGTH>
+                translate -x * VAR_BASE_WIDTH / 2
             }
 
-            texture { Simple_Color(White) }
+            texture { Simple_Color(Grey) }
 
-            // translate x * VAR_SEATING_SURFACE_WIDTH
-            // translate y * VAR_WALKWAY_HEIGHT
-
-            translate x * -1
+            translate y * VAR_BASE_HEIGHT // lift the model so that it sits on the ground plane
         }
     #end // macro Seat
 
@@ -69,7 +84,7 @@
     // front and back wall
     // door
 
-    Walkway()
-    Floor()
+    // Walkway()
+    // Floor()
     Seat()
 }
