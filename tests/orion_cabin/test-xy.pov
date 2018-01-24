@@ -6,11 +6,13 @@ global_settings {
 }
 
 camera {
-    #local VAR_CAMERA_HEIGHT = 0.4;
+    #local VAR_CAMERA_HEIGHT = 1.5;
+    #local VAR_ZOOM = 4;
 
     orthographic
     location <0, VAR_CAMERA_HEIGHT, -5>
-    right 16/9 * x
+    up y * VAR_ZOOM
+    right 16/9 * x * VAR_ZOOM
     look_at <0, VAR_CAMERA_HEIGHT, 0>
 }
 

@@ -10,6 +10,9 @@
         }
     #end // macro Simple_Color
 
+    #local VAR_CABIN_HEIGHT = 2.5; // height of human model is 2.32 units
+
+    // external declaration
     #local VAR_WALKWAY_WIDTH = 1;
     #local VAR_WALKWAY_LENGTH = 10;
     #local VAR_WALKWAY_HEIGHT = 0.4;
@@ -77,7 +80,17 @@
         }
     #end // macro Seat
 
-    // ceiling above walkway (with lights)
+    #macro Ceiling_Above_Walkway() // with lights
+        box {
+            0, <VAR_WALKWAY_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
+            texture { Simple_Color(Grey) }
+            translate -x * VAR_WALKWAY_WIDTH / 2 // center on the x axis
+            translate y * VAR_CABIN_HEIGHT
+        }
+
+        // TODO lights
+    #end // macro Ceiling_Above_Walkway
+
     // tilted ceiling above seats (with lights)
     // wall with windows
     // tilted wall beside seats
