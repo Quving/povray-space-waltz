@@ -80,6 +80,17 @@
         }
     #end // macro Seat
 
+    #macro Seat_Row_One_Side()
+        union {
+            #for (i, 1, 2)
+                object {
+                    Seat()
+                    translate x * i
+                }
+            #end
+        }
+    #end // macro Seat_Row_One_Side
+
     #macro Ceiling_Above_Walkway() // with lights
         box {
             0, <VAR_WALKWAY_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
@@ -91,7 +102,17 @@
         // TODO lights
     #end // macro Ceiling_Above_Walkway
 
-    // tilted ceiling above seats (with lights)
+    #macro Tilted_Ceiling_Above_Seats() // with lights (right side)
+        box {
+            0, <2.5, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
+            texture { Simple_Color(Grey) }
+            rotate z * -15
+            translate y * VAR_CABIN_HEIGHT
+            translate x * VAR_WALKWAY_WIDTH / 2 // center on the x axis
+        }
+        // TODO lights
+    #end // macro Tilted_Ceiling_Above_Seats
+
     // wall with windows
     // tilted wall beside seats
     // front and back wall
@@ -102,5 +123,8 @@
     Walkway()
     Ceiling_Above_Walkway()
 
-    // Seat()
+    /* right side of the cabin */
+    Seat_Row_One_Side()
+
+    Tilted_Ceiling_Above_Seats()
 }
