@@ -7,3 +7,5 @@ tests/**/*.png
 *.mp4
 *.swp
 *.pov-state
+*.bak
+.DS_Store
