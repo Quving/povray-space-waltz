@@ -20,7 +20,7 @@
     #macro Center()
         #macro Walkway()
             box {
-                0, <VAR_WALKWAY_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
+                z * -2, <VAR_WALKWAY_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
                 texture { Simple_Color(Grey) }
                 translate -x * VAR_WALKWAY_WIDTH / 2 // center on the x axis
             }
@@ -35,7 +35,7 @@
 
         #macro Ceiling_Above_Walkway() // with lights
             box {
-                0, <VAR_WALKWAY_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
+                z * -2, <VAR_WALKWAY_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
                 texture { Simple_Color(Grey) }
                 translate -x * VAR_WALKWAY_WIDTH / 2 // center on the x axis
                 translate y * (VAR_CABIN_HEIGHT + VAR_WALKWAY_HEIGHT)
@@ -184,6 +184,30 @@
     #end
 
     Wall_And_Door(0.3)
+
+    object {
+        Wall_And_Door(0)
+        translate z * (VAR_WALKWAY_LENGTH - 0.1)
+    }
+
+    union {
+        Wall_And_Door(0)
+
+        #local OBJ_Side_Wall_In_Front_Of_Cabin = box {
+            x * 0.5, <0.6, 3, 2>
+            texture { Simple_Color(Grey) }
+        }
+
+        OBJ_Side_Wall_In_Front_Of_Cabin
+
+        object {
+            OBJ_Side_Wall_In_Front_Of_Cabin
+
+            Mirror_X()
+        }
+
+        translate z * - 2
+    }
 
     // TODO front and back wall
 
