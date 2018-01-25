@@ -111,45 +111,47 @@
         #end // macro Seat_Row
 
         #macro Tilted_Ceiling_And_Wall()
-            #local VAR_TILTED_CEILING_WIDTH = 2.5;
+            #local VAR_TILTED_CEILING_WIDTH = 2.7;
             #local VAR_TILTED_CEILING_ROTATION = z * -20;
 
-            #macro Tilted_Ceiling_Above_Seats() // with lights
-                box {
-                    0, <VAR_TILTED_CEILING_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
+            union {
+
+                box { // tilted ceiling above seats
+                    x*0.2, <VAR_TILTED_CEILING_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
                     texture { Simple_Color(Grey) }
-                    rotate VAR_TILTED_CEILING_ROTATION
-                    translate y * VAR_CABIN_HEIGHT
-                    translate x * VAR_WALKWAY_WIDTH / 2 // center on the x axis
+
+                    // TODO lights
                 }
 
-                // TODO lights
-            #end // macro Tilted_Ceiling_Above_Seats
-
-            #macro Tilted_Wall_With_Windows()
-                box {
-                    0, <1, 0.1, VAR_WALKWAY_LENGTH>
+                box { // filler
+                    0, <0.4, 0.8, VAR_WALKWAY_LENGTH>
                     texture { Simple_Color(Grey) }
-                    rotate VAR_TILTED_CEILING_ROTATION
-                    rotate z * 90
+
+                    rotate z * 42
+                    translate x * 0.2
+                }
+
+                box { // tilted wall with windows
+                    x * -0.2, <2, 0.2, VAR_WALKWAY_LENGTH>
+                    texture { Simple_Color(Grey) }
+
+                    // TODO windows
+
+                    rotate z * -90
                     translate x * VAR_TILTED_CEILING_WIDTH
                 }
 
-                // TODO windows
-            #end // macro Tilted_Wall_With_Windows
+                rotate VAR_TILTED_CEILING_ROTATION
 
-            #macro Tilted_Wall_Beside_Seats()
-            #end // macro Tilted_Wall_Beside_Seats
-
-            Tilted_Ceiling_Above_Seats()
-            Tilted_Wall_With_Windows()
+                translate y * VAR_CABIN_HEIGHT
+                translate x * VAR_WALKWAY_WIDTH / 2
+            }
         #end
 
         Seat_Row()
         Tilted_Ceiling_And_Wall()
     #end // macro Right_Side
 
-    // tilted wall beside seats
     // front and back wall
     // door
 
