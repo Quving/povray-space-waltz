@@ -58,11 +58,14 @@
             #local VAR_ARMREST_WIDTH = 0.1;
             #local VAR_BASE_HEIGHT = 0.3;
             #local VAR_BASE_WIDTH = 0.2;
+            #local MAT_SEAT_TEXTURE = texture {
+                Simple_Color(DimGrey)
+            }
 
             union {
                 union { // seating surface and back rest
                     box { // seating surface
-                        0, <VAR_SEATING_SURFACE_WIDTH, 0.1, VAR_SEATING_SURFACE_LENGTH>
+                        z * -0.2, <VAR_SEATING_SURFACE_WIDTH, 0.1, VAR_SEATING_SURFACE_LENGTH>
                     }
 
                     box { // back rest
@@ -92,7 +95,7 @@
                     translate -x * VAR_BASE_WIDTH / 2
                 }
 
-                texture { Simple_Color(Grey) }
+                texture { MAT_SEAT_TEXTURE }
 
                 translate y * VAR_BASE_HEIGHT // lift the model so that it sits on the ground plane
             }

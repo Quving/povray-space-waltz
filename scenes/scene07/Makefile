@@ -27,3 +27,6 @@ test:
 foo:
 	echo $(PWD_WO_HOME)
 	echo $(SCENE_NAME)
+
+clean:
+	rm -rf out/*.png

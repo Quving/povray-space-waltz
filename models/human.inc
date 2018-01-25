@@ -50,8 +50,8 @@
     #end
 
     #macro Leg(side)
-        #local UPPER_LEG_LENGTH = 0.4;
-        #local LOWER_LEG_LENGTH = 0.4;
+        #local UPPER_LEG_LENGTH = 0.65;
+        #local LOWER_LEG_LENGTH = 0.65;
         #local FOOT_LENGTH = 0.3;
 
         union {
@@ -240,7 +240,7 @@
     #end
 
     #macro Torso()
-        #local TORSO_HEIGHT = 1;
+        #local TORSO_HEIGHT = 0.8;
         #local TORSO_WIDTH = 0.6;
 
         object {
@@ -248,7 +248,7 @@
                 cylinder { // the torso itself
                     0, <0, TORSO_HEIGHT, 0>, 0.5
                     texture { TEXTURE }
-                    scale <TORSO_WIDTH, 1, 0.45>
+                    scale <TORSO_WIDTH, 1, 0.3>
                 }
 
                 object {
@@ -284,11 +284,11 @@
                     translate x * TORSO_WIDTH * -0.3
                 }
 
-                #if (DEBUG_ALL_JOINTS)
-                    Draw_Debug_Axis(TORSO_HEIGHT * 0.4)
-                #else
-                    NULL
-                #end
+                // #if (DEBUG_ALL_JOINTS)
+                //     Draw_Debug_Axis(TORSO_HEIGHT * 0.4)
+                // #else
+                //     NULL
+                // #end
             }
         }
     #end

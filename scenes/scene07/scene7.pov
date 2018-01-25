@@ -1,7 +1,8 @@
 // scene 7
 
 #include "colors.inc"
-#include "util.inc"
+#include "transforms.inc"
+#include "util.inc" // our own macros
 
 global_settings {
     max_trace_level 15
@@ -14,15 +15,18 @@ global_settings {
 #include "orion_cabin.inc"
 #include "human.inc"
 
+#declare VAR_SITTING_HUMAN_POSITION = <-1, 0.5, 5.3>;
+
 camera {
     perspective
-    location <0, 0, -1> * 15
+    location <0, 2, 5>
     right 16/9*x
-    look_at 0
+    look_at VAR_SITTING_HUMAN_POSITION
+    // Rotate_Around_Trans(y * 180 * clock, <0, 2, 5>)
 }
 
 light_source {
-    <0.5, 0.8, -1> * 5
+    <0, 2, 5>
     color rgb <1,1,1>
 }
 
@@ -30,12 +34,14 @@ object {
     OBJ_Orion_Cabin
 }
 
-object {
-    // #local LEFT_LOWER_ARM_ROT = x*90;
-    #local DEBUG_ALL_JOINTS = false;
-    // #local LEFT_ARM_ROT = z * 90;
-    // #local RIGHT_ARM_ROT = z * 90;
-    // #local LEFT_LOWER_ARM_ROT = y * 45;
+object { // sitting human
+    #local DEBUG_ALL_JOINTS = true;
+
+    #local LEFT_LEG_ROT = z * -90;
+    #local LEFT_LOWER_LEG_ROT = z * 75;
+    #local RIGHT_LEG_ROT = z * -90;
+    #local RIGHT_LOWER_LEG_ROT = z * 75;
 
     Human()
+    translate VAR_SITTING_HUMAN_POSITION
 }
