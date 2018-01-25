@@ -51,7 +51,7 @@
 
     #macro Leg(side)
         #local UPPER_LEG_LENGTH = 0.65;
-        #local LOWER_LEG_LENGTH = 0.65;
+        #local LOWER_LEG_LENGTH = 0.55;
         #local FOOT_LENGTH = 0.3;
 
         union {

@@ -15,7 +15,7 @@ global_settings {
 #include "orion_cabin.inc"
 #include "human.inc"
 
-#declare VAR_SITTING_HUMAN_POSITION = <-1, 0.5, 5.3>;
+#declare VAR_SITTING_HUMAN_POSITION = <-1, 0.7, 5.3>;
 
 camera {
     perspective
