@@ -17,114 +17,145 @@
     #local VAR_WALKWAY_LENGTH = 10;
     #local VAR_WALKWAY_HEIGHT = 0.4;
 
-    #macro Walkway()
-        box {
-            0, <VAR_WALKWAY_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
-            texture { Simple_Color(Grey) }
-            translate -x * VAR_WALKWAY_WIDTH / 2 // center on the x axis
-        }
-    #end // macro Walkway
+    #macro Center()
+        #macro Walkway()
+            box {
+                0, <VAR_WALKWAY_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
+                texture { Simple_Color(Grey) }
+                translate -x * VAR_WALKWAY_WIDTH / 2 // center on the x axis
+            }
+        #end // macro Walkway
 
-    #macro Floor()
-        plane {
-            y, 0
-            texture { Simple_Color(Grey) }
-        }
-    #end // macro Floor
+        #macro Floor()
+            plane {
+                y, 0
+                texture { Simple_Color(Grey) }
+            }
+        #end // macro Floor
 
-    #macro Seat()
-        #local VAR_SEATING_SURFACE_WIDTH = 0.7; // human torso is 0.6 wide
-        #local VAR_SEATING_SURFACE_LENGTH = 0.4;
-        #local VAR_ARMREST_HEIGHT = 0.3;
-        #local VAR_ARMREST_LENGTH = 0.3;
-        #local VAR_ARMREST_WIDTH = 0.1;
-        #local VAR_BASE_HEIGHT = 0.3;
-        #local VAR_BASE_WIDTH = 0.2;
-
-        union {
-            union { // seating surface and back rest
-                box { // seating surface
-                    0, <VAR_SEATING_SURFACE_WIDTH, 0.1, VAR_SEATING_SURFACE_LENGTH>
-                }
-
-                box { // back rest
-                    0, <VAR_SEATING_SURFACE_WIDTH, 1, 0.1>
-                    translate z * VAR_SEATING_SURFACE_LENGTH
-                }
-
-                translate -x * VAR_SEATING_SURFACE_WIDTH / 2
+        #macro Ceiling_Above_Walkway() // with lights
+            box {
+                0, <VAR_WALKWAY_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
+                texture { Simple_Color(Grey) }
+                translate -x * VAR_WALKWAY_WIDTH / 2 // center on the x axis
+                translate y * (VAR_CABIN_HEIGHT + VAR_WALKWAY_HEIGHT)
             }
 
-            union { // armrests
-                box { // left armrest
-                    0, <VAR_ARMREST_WIDTH, VAR_ARMREST_HEIGHT, VAR_ARMREST_LENGTH>
-                    translate x * VAR_SEATING_SURFACE_WIDTH / 2
-                }
+            // TODO lights
+        #end // macro Ceiling_Above_Walkway
 
-                box { // right armrest
-                    0, <-0.1, VAR_ARMREST_HEIGHT, VAR_ARMREST_LENGTH>
+        Floor()
+        Walkway()
+        Ceiling_Above_Walkway()
+    #end
+
+    #macro Right_Side()
+
+        #macro Seat()
+            #local VAR_SEATING_SURFACE_WIDTH = 0.7; // human torso is 0.6 wide
+            #local VAR_SEATING_SURFACE_LENGTH = 0.4;
+            #local VAR_ARMREST_HEIGHT = 0.3;
+            #local VAR_ARMREST_LENGTH = 0.3;
+            #local VAR_ARMREST_WIDTH = 0.1;
+            #local VAR_BASE_HEIGHT = 0.3;
+            #local VAR_BASE_WIDTH = 0.2;
+
+            union {
+                union { // seating surface and back rest
+                    box { // seating surface
+                        0, <VAR_SEATING_SURFACE_WIDTH, 0.1, VAR_SEATING_SURFACE_LENGTH>
+                    }
+
+                    box { // back rest
+                        0, <VAR_SEATING_SURFACE_WIDTH, 1, 0.1>
+                        translate z * VAR_SEATING_SURFACE_LENGTH
+                    }
+
                     translate -x * VAR_SEATING_SURFACE_WIDTH / 2
                 }
 
-                translate z * (VAR_SEATING_SURFACE_LENGTH - VAR_ARMREST_LENGTH)
-            }
+                union { // armrests
+                    box { // left armrest
+                        0, <VAR_ARMREST_WIDTH, VAR_ARMREST_HEIGHT, VAR_ARMREST_LENGTH>
+                        translate x * VAR_SEATING_SURFACE_WIDTH / 2
+                    }
 
-            box { // base
-                0, <VAR_BASE_WIDTH, -VAR_BASE_HEIGHT, VAR_SEATING_SURFACE_LENGTH>
-                translate -x * VAR_BASE_WIDTH / 2
-            }
+                    box { // right armrest
+                        0, <-0.1, VAR_ARMREST_HEIGHT, VAR_ARMREST_LENGTH>
+                        translate -x * VAR_SEATING_SURFACE_WIDTH / 2
+                    }
 
-            texture { Simple_Color(Grey) }
-
-            translate y * VAR_BASE_HEIGHT // lift the model so that it sits on the ground plane
-        }
-    #end // macro Seat
-
-    #macro Seat_Row_One_Side()
-        union {
-            #for (i, 1, 2)
-                object {
-                    Seat()
-                    translate x * i
+                    translate z * (VAR_SEATING_SURFACE_LENGTH - VAR_ARMREST_LENGTH)
                 }
-            #end
-        }
-    #end // macro Seat_Row_One_Side
 
-    #macro Ceiling_Above_Walkway() // with lights
-        box {
-            0, <VAR_WALKWAY_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
-            texture { Simple_Color(Grey) }
-            translate -x * VAR_WALKWAY_WIDTH / 2 // center on the x axis
-            translate y * (VAR_CABIN_HEIGHT + VAR_WALKWAY_HEIGHT)
-        }
+                box { // base
+                    0, <VAR_BASE_WIDTH, -VAR_BASE_HEIGHT, VAR_SEATING_SURFACE_LENGTH>
+                    translate -x * VAR_BASE_WIDTH / 2
+                }
 
-        // TODO lights
-    #end // macro Ceiling_Above_Walkway
+                texture { Simple_Color(Grey) }
 
-    #macro Tilted_Ceiling_Above_Seats() // with lights (right side)
-        box {
-            0, <2.5, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
-            texture { Simple_Color(Grey) }
-            rotate z * -15
-            translate y * VAR_CABIN_HEIGHT
-            translate x * VAR_WALKWAY_WIDTH / 2 // center on the x axis
-        }
-        // TODO lights
-    #end // macro Tilted_Ceiling_Above_Seats
+                translate y * VAR_BASE_HEIGHT // lift the model so that it sits on the ground plane
+            }
+        #end // macro Seat
 
-    // wall with windows
+        #macro Seat_Row()
+            union {
+                #for (i, 1, 2)
+                    object {
+                        Seat()
+                        translate x * i
+                    }
+                #end
+            }
+        #end // macro Seat_Row
+
+        #macro Tilted_Ceiling_And_Wall()
+            #local VAR_TILTED_CEILING_WIDTH = 2.5;
+            #local VAR_TILTED_CEILING_ROTATION = z * -20;
+
+            #macro Tilted_Ceiling_Above_Seats() // with lights
+                box {
+                    0, <VAR_TILTED_CEILING_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
+                    texture { Simple_Color(Grey) }
+                    rotate VAR_TILTED_CEILING_ROTATION
+                    translate y * VAR_CABIN_HEIGHT
+                    translate x * VAR_WALKWAY_WIDTH / 2 // center on the x axis
+                }
+
+                // TODO lights
+            #end // macro Tilted_Ceiling_Above_Seats
+
+            #macro Tilted_Wall_With_Windows()
+                box {
+                    0, <1, 0.1, VAR_WALKWAY_LENGTH>
+                    texture { Simple_Color(Grey) }
+                    rotate VAR_TILTED_CEILING_ROTATION
+                    rotate z * 90
+                    translate x * VAR_TILTED_CEILING_WIDTH
+                }
+
+                // TODO windows
+            #end // macro Tilted_Wall_With_Windows
+
+            #macro Tilted_Wall_Beside_Seats()
+            #end // macro Tilted_Wall_Beside_Seats
+
+            Tilted_Ceiling_Above_Seats()
+            Tilted_Wall_With_Windows()
+        #end
+
+        Seat_Row()
+        Tilted_Ceiling_And_Wall()
+    #end // macro Right_Side
+
     // tilted wall beside seats
     // front and back wall
     // door
 
     /* centered parts */
-    Floor()
-    Walkway()
-    Ceiling_Above_Walkway()
+    Center()
 
     /* right side of the cabin */
-    Seat_Row_One_Side()
-
-    Tilted_Ceiling_Above_Seats()
+    Right_Side()
 }
