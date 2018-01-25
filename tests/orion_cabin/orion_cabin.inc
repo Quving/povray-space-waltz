@@ -162,8 +162,31 @@
         Tilted_Ceiling_And_Wall()
     #end // macro Right_Side
 
-    // front and back wall
-    // door
+    #macro Wall_And_Door(Door_Openess)
+        union {
+            difference { // not working right now
+                box {
+                    <-3, 0, 0>, <3, 2.5, 0.2>
+                }
+
+                box {
+                    <-0.45, 0.35, -0.00001>, <0.45, 2.45, 0.2 + 0.00001>
+                }
+            }
+
+            box { // door
+                <-0.5, 0.35, 0.05>, <0.5, 2.45, 0.15>
+
+                translate x * Door_Openess
+            }
+
+            texture { Simple_Color(Grey) }
+        }
+    #end
+
+    Wall_And_Door()
+
+    // TODO front and back wall
 
     /* centered parts */
     Center()
