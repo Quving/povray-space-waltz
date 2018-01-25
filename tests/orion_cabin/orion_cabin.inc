@@ -50,7 +50,6 @@
     #end
 
     #macro Right_Side()
-
         #macro Seat()
             #local VAR_SEATING_SURFACE_WIDTH = 0.7; // human torso is 0.6 wide
             #local VAR_SEATING_SURFACE_LENGTH = 0.4;
@@ -164,9 +163,9 @@
 
     #macro Wall_And_Door(Door_Openess)
         union {
-            difference { // not working right now
+            difference {
                 box {
-                    <-3, 0, 0>, <3, 2.5, 0.2>
+                    <-3, 0, 0>, <3, 3, 0.2>
                 }
 
                 box {
@@ -184,7 +183,7 @@
         }
     #end
 
-    Wall_And_Door()
+    Wall_And_Door(0.3)
 
     // TODO front and back wall
 
