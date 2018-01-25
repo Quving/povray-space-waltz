@@ -14,17 +14,43 @@ global_settings {
 #include "../../models/orion_POV_geom.inc" //Geometry
 #include "../../models/StationV_POV_geom.inc" //Geometry
 #include "transforms.inc" //cool
-
-//CAMERA PoseRayCAMERA
+      
+      
+      
+//CAMERA PoseRayCAMERA      scene 20
+//camera { 
+//    //location <10*sin(2*pi*clock),0,-10*cos(2*pi*clock)> 
+//    location <10000,0,-1000> 
+//    rotate<-30,0,0> 
+//    look_at <1,1,-1000> 
+//    translate<-14000*clock,0,0>  
+//    rotate<20*clock,0,0> 
+//    //Rotate_Around_Trans(<0,365*clock>,<-12000,0,0>)    
+//}
+      
+//CAMERA PoseRayCAMERA     scene 20.1
 camera {
-    //location <10*sin(2*pi*clock),0,-10*cos(2*pi*clock)>                       
-    location <-14000,0,0>
-    rotate<-50,0,0>
-    look_at <1,1,-1000>
-    rotate<0,180*clock,0>
-    //Rotate_Around_Trans(<0,365*clock>,<-12000,0,0>)
     
+    location <-7000,-1500,-8000> 
+    look_at <1,1,-1000>    
+    rotate <60,0,0>        
+}
+   
+//Assembled object that is contained in orion_POV_geom.inc with no SSLT components
+object {
+    orion_
+    translate <0,0,-6000>  
+    rotate<90,250,0>    
+    translate <0,-3500*clock,0>  
+    }
+   
+   
+object {
+    StationV_     
     
+    rotate <90,0,0> //startzustand
+    rotate <0,-100*clock,0> // rotation um eigen achse    
+   
 }
 
 //PoseRay default Light attached to the camera
@@ -41,17 +67,8 @@ light_source {
 //Background
 background { color srgb 0  }
 
-//Assembled object that is contained in orion_POV_geom.inc with no SSLT components
-//object {
-//    orion_
-//    translate <1000,0,0>
-//}
 
-object {
-    StationV_
-    rotate <90,0,0> //rotation
-    rotate <0,-400*clock,0>
-}
+
 
 //restore the version used outside this file
 #version Temp_version;
