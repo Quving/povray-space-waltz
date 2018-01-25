@@ -106,16 +106,26 @@
                         Seat()
                         translate x * i
                     }
-                #end
+                #end // for
             }
         #end // macro Seat_Row
+
+        #macro Seats()
+            union {
+                #for (i, 1, 9)
+                    object {
+                        Seat_Row()
+                        translate z * i
+                    }
+                #end // for
+            }
+        #end
 
         #macro Tilted_Ceiling_And_Wall()
             #local VAR_TILTED_CEILING_WIDTH = 2.7;
             #local VAR_TILTED_CEILING_ROTATION = z * -20;
 
             union {
-
                 box { // tilted ceiling above seats
                     x*0.2, <VAR_TILTED_CEILING_WIDTH, VAR_WALKWAY_HEIGHT, VAR_WALKWAY_LENGTH>
                     texture { Simple_Color(Grey) }
@@ -148,7 +158,7 @@
             }
         #end
 
-        Seat_Row()
+        Seats()
         Tilted_Ceiling_And_Wall()
     #end // macro Right_Side
 
@@ -160,4 +170,10 @@
 
     /* right side of the cabin */
     Right_Side()
+
+    /* left side of the cabin */
+    union {
+        Right_Side()
+        Mirror_X()
+    }
 }
