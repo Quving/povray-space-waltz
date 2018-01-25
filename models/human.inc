@@ -121,7 +121,7 @@
     #end
 
     #macro Arm(side)
-        #local UPPER_ARM_LENGTH = 0.4;
+        #local UPPER_ARM_LENGTH = 0.45;
         #local LOWER_ARM_LENGTH = 0.4;
         #local HAND_LENGTH = 0.24;
 

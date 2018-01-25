@@ -37,6 +37,8 @@ object {
 object { // sitting human
     #local DEBUG_ALL_JOINTS = true;
 
+    #local LEFT_ARM_ROT = z * -75;
+    #local LEFT_LOWER_ARM_ROT = z * 60;
     #local LEFT_LEG_ROT = z * -90;
     #local LEFT_LOWER_LEG_ROT = z * 75;
     #local RIGHT_LEG_ROT = z * -90;
