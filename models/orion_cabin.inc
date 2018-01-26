@@ -56,7 +56,7 @@
             #local VAR_ARMREST_HEIGHT = 0.3;
             #local VAR_ARMREST_LENGTH = 0.3;
             #local VAR_ARMREST_WIDTH = 0.1;
-            #local VAR_BASE_HEIGHT = 0.5;
+            #local VAR_BASE_HEIGHT = 0.4;
             #local VAR_BASE_WIDTH = 0.2;
             #local MAT_SEAT_TEXTURE = texture {
                 Simple_Color(DimGrey)

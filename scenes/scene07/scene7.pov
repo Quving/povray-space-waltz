@@ -15,17 +15,27 @@ global_settings {
 #include "orion_cabin.inc"
 #include "human.inc"
 
-#declare VAR_SITTING_HUMAN_POSITION = <-1, 0.7, 5.3>;
+#declare VAR_SITTING_HUMAN_POSITION = <-1, 0.6, 5.3>;
 // #declare VAR_CAMERA_LOCATION = <-1.5, 1.8, 4.8>;
 #declare VAR_CAMERA_LOCATION = <0, 1.8, 4.8>;
 
-camera {
+#declare CAMERA_SCENE = camera {
+    perspective
+    location <0, 0.8, 6>
+    right 16/9*x
+    angle 100
+    look_at <-1.2, 1.4, 0>
+}
+
+#declare CAMERA_TEST = camera {
     perspective
     location VAR_CAMERA_LOCATION
     right 16/9*x
     look_at VAR_SITTING_HUMAN_POSITION
     // Rotate_Around_Trans(y * 180 * clock, <0, 2, 5>)
 }
+
+camera { CAMERA_SCENE }
 
 light_source {
     // <0, 2, 5>
@@ -42,6 +52,7 @@ object { // sitting human
 
     #local LEFT_ARM_ROT = z * -75;
     #local LEFT_LOWER_ARM_ROT = z * 60;
+    // #local LEFT_LOWER_ARM_ROT = <30, 90, 90>;
     #local RIGHT_ARM_ROT = z * -75;
     #local RIGHT_LOWER_ARM_ROT = <0, 105, 30>;
     #local RIGHT_HAND_ROT = <90, -90, 0>;
