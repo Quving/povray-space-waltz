@@ -30,23 +30,25 @@ plane{ y, -1.5
     }
 #end // macro
 
-#macro Button1(position, dimension)
+#macro Button1(position, dimension, color_)
     box {
         position, dimension
         texture{
-            pigment{ color Red }
+            pigment{ color color_ }
             finish {diffuse 0.9}
         }
     }
 #end // macro
 
-#macro Button1_Set (rows, columns)
+
+/* Returns a union with a m x n button arrangement. */
+#macro Button1_Set (rows, columns, color_)
     #local PADDING = 0.2;
     union {
         #for (idx_x, 1, columns, 1)
             #for(idx_y, 1, rows, 1)
                 object {
-                Button1 (0, <BUTTON_x, BUTTON_y, BUTTON_z>)
+                Button1 (0, <BUTTON_x, BUTTON_y, BUTTON_z>, color_)
                 translate <(BUTTON_x + PADDING)*idx_x, (BUTTON_x + PADDING ) * idx_y, -BUTTON_z>
             }
             #end // for
@@ -61,20 +63,19 @@ union {
     #local BUTTON_z = 0.25; // length in z
 
     /* Control desk parameter. */
-    #local CONTROL_DESK_scale = 3;
-    #local CONTROL_DESK_x = 7.5 * CONTROL_DESK_scale; // half width in x
-    #local CONTROL_DESK_y = 2.5 * CONTROL_DESK_scale; // total height
-    #local CONTROL_DESK_z = 0.25 * CONTROL_DESK_scale; // length in z
+    #local CONTROL_DESK_x = 7.5; // half width in x
+    #local CONTROL_DESK_y = 2.5; // total height
+    #local CONTROL_DESK_z = 0.25; // length in z
 
     /* Control desk object. */
     object {
         Control_Desk(0, <CONTROL_DESK_x, CONTROL_DESK_y, CONTROL_DESK_z>)
+        scale 3
     }
 
     /* Button1 Set 1 */
     object {
-        Button1_Set(4,4)
-        translate 0
+        Button1_Set(4,4, Red)
     }
 }
 
