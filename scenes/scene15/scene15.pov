@@ -21,10 +21,10 @@ plane{ y, -1.5
     pigment{ checker Gray White }
 }
 
-#macro Control_Desk(position, dimension)
-    box{ position, dimension
+#macro Control_Desk(dimension, color_)
+    box{ 0, <CONTROL_DESK_x, CONTROL_DESK_y, CONTROL_DESK_z>
         texture{
-            pigment{color rgb<1,1,1>}
+            pigment{color color_}
             finish {diffuse 0.9}
         }
     }
@@ -42,40 +42,74 @@ plane{ y, -1.5
 
 
 /* Returns a union with a m x n button arrangement. */
-#macro Button1_Set (rows, columns, color_)
-    #local PADDING = 0.2;
+#macro Button_Matrix (rows, columns, padding, color_)
     union {
-        #for (idx_x, 1, columns, 1)
-            #for(idx_y, 1, rows, 1)
+        #for (idx_x, 0, columns-1, 1)
+            #for(idx_y, 0, rows-1, 1)
                 object {
                 Button1 (0, <BUTTON_x, BUTTON_y, BUTTON_z>, color_)
-                translate <(BUTTON_x + PADDING)*idx_x, (BUTTON_x + PADDING ) * idx_y, -BUTTON_z>
+                translate <(BUTTON_x + padding)*idx_x, (BUTTON_y + padding ) * idx_y, -BUTTON_z>
             }
             #end // for
         #end // for
+        translate <X,Y,Z>
     }
 #end // macro
 
 union {
-    /* Button parameter. */
-    #local BUTTON_x = 1; // half width in x
-    #local BUTTON_y = 1; // total height
-    #local BUTTON_z = 0.25; // length in z
-
-    /* Control desk parameter. */
-    #local CONTROL_DESK_x = 7.5; // half width in x
-    #local CONTROL_DESK_y = 2.5; // total height
+   /* Control desk parameter. */
+    #local CONTROL_DESK_x = 10.0; // half width in x
+    #local CONTROL_DESK_y = 2.0; // total height
     #local CONTROL_DESK_z = 0.25; // length in z
 
     /* Control desk object. */
     object {
-        Control_Desk(0, <CONTROL_DESK_x, CONTROL_DESK_y, CONTROL_DESK_z>)
+        Control_Desk(0, rgb<39/255, 37/255, 40/255>)
         scale 3
     }
 
-    /* Button1 Set 1 */
+    /* Last button row */
+    #local BUTTON_x = 1;
+    #local BUTTON_y = 1;
+    #local BUTTON_z = 0.25;
+    #local BUTTON_PADDING = 0.4;
+    #local X = 0;
+    #local Y = 0;
+    #local Z = 0;
     object {
-        Button1_Set(4,4, Red)
+        Button_Matrix(1,4, BUTTON_PADDING, MandarinOrange)
+    }
+
+   /* Before last button row */
+    #local Y = 1 *(BUTTON_PADDING + BUTTON_y); // Update X because BUTTON_x changed.
+    object {
+        Button_Matrix(3,4, BUTTON_PADDING, DarkTurquoise)
+    }
+
+    /* Little rectable button. */
+    #local BUTTON_x = 1.5;
+    #local BUTTON_y = 0.5;
+    #local X = 3*(BUTTON_PADDING+BUTTON_x);
+    #local Y = 0;
+    object {
+        Button_Matrix(1,1, BUTTON_PADDING, MandarinOrange)
+    }
+
+    /* Last button row */
+    #local X = 4*(BUTTON_PADDING+BUTTON_x);
+    object {
+        Button_Matrix(1,4, BUTTON_PADDING, DarkTan)
+    }
+
+   /* Before last button row */
+    #local Y = BUTTON_PADDING + (1 * BUTTON_y); // Update X because BUTTON_x changed.
+    object {
+        Button_Matrix(1,4, BUTTON_PADDING, Grey)
+    }
+
+    #local Y = 2 *(BUTTON_PADDING + BUTTON_y); // Update X because BUTTON_x changed.
+    object {
+        Button_Matrix(2,4, BUTTON_PADDING, NewMidnightBlue)
     }
 }
 
