@@ -16,17 +16,20 @@ global_settings {
 #include "human.inc"
 
 #declare VAR_SITTING_HUMAN_POSITION = <-1, 0.7, 5.3>;
+// #declare VAR_CAMERA_LOCATION = <-1.5, 1.8, 4.8>;
+#declare VAR_CAMERA_LOCATION = <0, 1.8, 4.8>;
 
 camera {
     perspective
-    location <0, 2, 5>
+    location VAR_CAMERA_LOCATION
     right 16/9*x
     look_at VAR_SITTING_HUMAN_POSITION
     // Rotate_Around_Trans(y * 180 * clock, <0, 2, 5>)
 }
 
 light_source {
-    <0, 2, 5>
+    // <0, 2, 5>
+    VAR_CAMERA_LOCATION
     color rgb <1,1,1>
 }
 
@@ -39,6 +42,9 @@ object { // sitting human
 
     #local LEFT_ARM_ROT = z * -75;
     #local LEFT_LOWER_ARM_ROT = z * 60;
+    #local RIGHT_ARM_ROT = z * -75;
+    #local RIGHT_LOWER_ARM_ROT = <0, 105, 30>;
+    #local RIGHT_HAND_ROT = <90, -90, 0>;
     #local LEFT_LEG_ROT = z * -90;
     #local LEFT_LOWER_LEG_ROT = z * 75;
     #local RIGHT_LEG_ROT = z * -90;
