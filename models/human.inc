@@ -55,18 +55,33 @@
         #local FOOT_LENGTH = 0.3;
 
         union {
-            cylinder { // UpperLeg
-                0, x * UPPER_LEG_LENGTH, 0.1
+            sphere {
+                0, 0.1
+                texture { TEXTURE }
+            }
+
+            cone { // UpperLeg
+                0, 0.1 x * UPPER_LEG_LENGTH, 0.09
                 texture { TEXTURE }
             }
 
             union {
-                cylinder { // LowerLeg
-                    0, x * LOWER_LEG_LENGTH, 0.08
+                sphere {
+                    0, 0.09
+                    texture { TEXTURE }
+                }
+
+                cone { // LowerLeg
+                    0, 0.09, x * LOWER_LEG_LENGTH, 0.08
                     texture { TEXTURE }
                 }
 
                 union { // Foot
+                    sphere {
+                        0, 0.08
+                        texture { TEXTURE }
+                    }
+
                     box {
                         0, <0.12, -FOOT_LENGTH, 0.2>
                         texture { TEXTURE }
@@ -126,18 +141,33 @@
         #local HAND_LENGTH = 0.24;
 
         union { // UpperArm, LowerArm and Hand
-            cylinder { // UpperArm
-                0, x * UPPER_ARM_LENGTH, 0.1
+            sphere {
+                0, 0.1
+                texture { TEXTURE }
+            }
+
+            cone { // UpperArm
+                0, 0.1, x * UPPER_ARM_LENGTH, 0.09
                 texture { TEXTURE }
             }
 
             union { // LowerArm and Hand
-                cylinder { // LowerArm
-                    0, x * LOWER_ARM_LENGTH, 0.08
+                sphere {
+                    0, 0.09
+                    texture { TEXTURE }
+                }
+
+                cone { // LowerArm
+                    0, 0.09, x * LOWER_ARM_LENGTH, 0.08
                     texture { TEXTURE }
                 }
 
                 union { // Hand
+                    sphere {
+                        0, 0.08
+                        texture { TEXTURE }
+                    }
+
                     box {
                         0, <HAND_LENGTH, 0.12, 0.2>
                         texture { TEXTURE }
