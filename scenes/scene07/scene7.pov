@@ -44,7 +44,8 @@ light_source {
 }
 
 object {
-    OBJ_Orion_Cabin
+    #local FRONT_DOOR_OPENESS = 0;
+    Orion_Cabin()
 }
 
 object { // sitting human
