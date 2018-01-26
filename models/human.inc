@@ -71,59 +71,67 @@
         #local FOOT_LENGTH = 0.3;
 
         union {
-            sphere { // hip joint
-                0, 0.1
-                texture { TEXTURE }
-            }
-
-            cone { // UpperLeg
-                0, 0.1 x * UPPER_LEG_LENGTH, 0.09
-                texture { TEXTURE }
-            }
-
-            union {
-                sphere { // knee
-                    0, 0.09
+            union { // UpperLeg
+                sphere { // hip joint
+                    0, 0.1
                     texture { TEXTURE }
                 }
 
-                cone { // LowerLeg
-                    0, 0.09, x * LOWER_LEG_LENGTH, 0.08
+                cone { // UpperLeg
+                    0, 0.1 x * UPPER_LEG_LENGTH, 0.09
                     texture { TEXTURE }
                 }
 
-                union { // Foot
-                    sphere { // ankle
-                        0, 0.08
-                        texture { TEXTURE }
+                union {
+                    union { // LowerLeg
+                        sphere { // knee
+                            0, 0.09
+                            texture { TEXTURE }
+                        }
+
+                        cone { // LowerLeg
+                            0, 0.09, x * LOWER_LEG_LENGTH, 0.08
+                            texture { TEXTURE }
+                        }
+
+                        union {
+                            union { // Foot
+                                sphere { // ankle
+                                    0, 0.08
+                                    texture { TEXTURE }
+                                }
+
+                                box { // foot
+                                    0, <0.12, -FOOT_LENGTH, 0.2>
+                                    texture { TEXTURE }
+                                    translate <0, 0.08, -0.1>
+                                }
+
+                                // apply rotation of the joint to customize the pose
+                                If_Left_Rotate_Else_Rotate(LEFT_FOOT_ROT, RIGHT_FOOT_ROT)
+                            }
+
+                            If_Debug_Draw_Axis(FOOT_LENGTH * 0.8)
+
+                            translate x * LOWER_LEG_LENGTH
+                        }
+
+                        // apply rotation of the joint to customize the pose
+                        If_Left_Rotate_Else_Rotate(LEFT_LOWER_LEG_ROT, RIGHT_LOWER_LEG_ROT)
                     }
 
-                    box { // foot
-                        0, <0.12, -FOOT_LENGTH, 0.2>
-                        texture { TEXTURE }
-                        translate <0, 0.08, -0.1>
-                    }
+                    If_Debug_Draw_Axis(LOWER_LEG_LENGTH * 0.8)
 
-                    If_Debug_Draw_Axis(FOOT_LENGTH * 0.8)
-
-                    // apply rotation of the joint to customize the pose
-                    If_Left_Rotate_Else_Rotate(LEFT_FOOT_ROT, RIGHT_FOOT_ROT)
-
-                    translate x * LOWER_LEG_LENGTH
+                    translate x * UPPER_LEG_LENGTH
                 }
-
-                If_Debug_Draw_Axis(LOWER_LEG_LENGTH * 0.8)
 
                 // apply rotation of the joint to customize the pose
-                If_Left_Rotate_Else_Rotate(LEFT_LOWER_LEG_ROT, RIGHT_LOWER_LEG_ROT)
-
-                translate x * UPPER_LEG_LENGTH
+                If_Left_Rotate_Else_Rotate(LEFT_LEG_ROT, RIGHT_LEG_ROT)
             }
 
             If_Debug_Draw_Axis(UPPER_LEG_LENGTH * 0.8)
 
-            // apply rotation of the joint to customize the pose
-            If_Left_Rotate_Else_Rotate(LEFT_LEG_ROT, RIGHT_LEG_ROT)
+            // translation has to be done by caller
         }
     #end
 
@@ -134,63 +142,71 @@
         #local HAND_WIDTH = 0.18;
         #local HAND_HEIGHT = 0.08;
 
-        union { // UpperArm, LowerArm and Hand
-            sphere { // shoulder
-                0, 0.1
-                texture { TEXTURE }
-            }
-
-            cone { // UpperArm
-                0, 0.1, x * UPPER_ARM_LENGTH, 0.09
-                texture { TEXTURE }
-            }
-
-            union { // LowerArm and Hand
-                sphere { // elbow
-                    0, 0.09
+        union {
+            union { // UpperArm, LowerArm and Hand
+                sphere { // shoulder
+                    0, 0.1
                     texture { TEXTURE }
                 }
 
-                cone { // LowerArm
-                    0, 0.09, x * LOWER_ARM_LENGTH, 0.08
+                cone { // UpperArm
+                    0, 0.1, x * UPPER_ARM_LENGTH, 0.09
                     texture { TEXTURE }
                 }
 
-                union { // Hand
-                    sphere { // wrist
-                        0, 0.08
-                        texture { TEXTURE }
+                union {
+                    union { // LowerArm and Hand
+                        sphere { // elbow
+                            0, 0.09
+                            texture { TEXTURE }
+                        }
+
+                        cone { // LowerArm
+                            0, 0.09, x * LOWER_ARM_LENGTH, 0.08
+                            texture { TEXTURE }
+                        }
+
+                        union {
+                            union { // Hand
+                                sphere { // wrist
+                                    0, 0.08
+                                    texture { TEXTURE }
+                                }
+
+                                box { // (simple) hand
+                                    0, <HAND_LENGTH, HAND_HEIGHT, HAND_WIDTH>
+                                    texture { TEXTURE }
+                                    translate -<0, HAND_HEIGHT / 2, HAND_WIDTH / 2>
+                                }
+
+                                // TODO split into palm, fingers and thumb
+
+                                // apply rotation of the joint at the wrist
+                                If_Left_Rotate_Else_Rotate(LEFT_HAND_ROT, RIGHT_HAND_ROT)
+                            }
+
+                            If_Debug_Draw_Axis(HAND_LENGTH * 0.8)
+
+                            translate x * LOWER_ARM_LENGTH
+                        }
+
+                        // apply rotation of the joint at the elbow
+                        If_Left_Rotate_Else_Rotate(LEFT_LOWER_ARM_ROT, RIGHT_LOWER_ARM_ROT)
                     }
 
-                    box { // (simple) hand
-                        0, <HAND_LENGTH, HAND_HEIGHT, HAND_WIDTH>
-                        texture { TEXTURE }
-                        translate -<0, HAND_HEIGHT / 2, HAND_WIDTH / 2>
-                    }
+                    If_Debug_Draw_Axis(LOWER_ARM_LENGTH * 0.8)
 
-                    // TODO split into palm, fingers and thumb
-
-                    If_Debug_Draw_Axis(HAND_LENGTH * 0.8)
-
-                    // apply rotation of the joint at the wrist
-                    If_Left_Rotate_Else_Rotate(LEFT_HAND_ROT, RIGHT_HAND_ROT)
-
-                    translate x * LOWER_ARM_LENGTH
+                    translate x * UPPER_ARM_LENGTH
                 }
 
-                If_Debug_Draw_Axis(LOWER_ARM_LENGTH * 0.8)
-
-                // apply rotation of the joint at the elbow
-                If_Left_Rotate_Else_Rotate(LEFT_LOWER_ARM_ROT, RIGHT_LOWER_ARM_ROT)
-
-                translate x * UPPER_ARM_LENGTH
+                // apply rotation of the joint (and debug axis) at the shoulder
+                If_Left_Rotate_Else_Rotate(LEFT_ARM_ROT, RIGHT_ARM_ROT + x * 180)
             }
 
             // add axis that move and rotate with the arm
             If_Debug_Draw_Axis(UPPER_ARM_LENGTH * 0.8)
 
-            // apply rotation of the joint (and debug axis) at the shoulder
-            If_Left_Rotate_Else_Rotate(LEFT_ARM_ROT, RIGHT_ARM_ROT + x * 180)
+            // translation has to be done by caller
         }
     #end
 
