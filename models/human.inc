@@ -139,6 +139,8 @@
         #local UPPER_ARM_LENGTH = 0.45;
         #local LOWER_ARM_LENGTH = 0.4;
         #local HAND_LENGTH = 0.24;
+        #local HAND_WIDTH = 0.18;
+        #local HAND_HEIGHT = 0.08;
 
         union { // UpperArm, LowerArm and Hand
             sphere {
@@ -169,10 +171,12 @@
                     }
 
                     box {
-                        0, <HAND_LENGTH, 0.12, 0.2>
+                        0, <HAND_LENGTH, HAND_HEIGHT, HAND_WIDTH>
                         texture { TEXTURE }
-                        translate -<0, 0.06, 0.1>
+                        translate -<0, HAND_HEIGHT / 2, HAND_WIDTH / 2>
                     }
+
+                    // TODO split into palm, fingers and thumb
 
                     /*
                     box {
@@ -270,7 +274,7 @@
     #end
 
     #macro Torso()
-        #local TORSO_HEIGHT = 0.8;
+        #local TORSO_HEIGHT = 0.7;
         #local TORSO_WIDTH = 0.6;
 
         object {
