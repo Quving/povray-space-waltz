@@ -3,10 +3,10 @@ SCENE_NAME = $(shell pwd | sed -e "s/.*\///g")
 PATH_TO_SCENE= $(shell pwd)
 
 ffmpeg:
-	bash animate.sh {$SCENE_NAME} 5
+	bash animate.sh ${SCENE_NAME} 5
 render:
 	rm *.png *.jpg *.mp4; \
-	    povray *.ini Final_Frame=50
+	    povray *.ini Final_Frame=1
 
 # Render images and create mp4 file on server.
 render_on_server:
