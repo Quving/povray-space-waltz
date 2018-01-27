@@ -4,6 +4,8 @@
 #include "transforms.inc"
 #include "util.inc" // our own macros
 
+#declare Scene_Length = 20; // seconds
+
 global_settings {
     max_trace_level 15
     adc_bailout 0.01
@@ -14,20 +16,21 @@ global_settings {
 #include "space_wallpaper.inc" // background
 #include "orion_cabin.inc"
 #include "human.inc"
+#include "pen.inc"
 
-#declare VAR_SITTING_HUMAN_POSITION = <-1, 0.6, 5.3>;
+#declare VAR_SITTING_HUMAN_POSITION = <-1, 0.5, 5.3>;
 // #declare VAR_CAMERA_LOCATION = <-1.5, 1.8, 4.8>;
 #declare VAR_CAMERA_LOCATION = <0, 1.8, 4.8>;
 
 #declare CAMERA_SCENE = camera {
     perspective
-    location <0, 0.8, 6>
+    location <0.2, 0.8, 6.3>
     right 16/9*x
     angle 100
     look_at <-1.2, 1.4, 0>
 }
 
-#declare CAMERA_TEST = camera {
+#declare CAMERA_TEST_1 = camera {
     perspective
     location VAR_CAMERA_LOCATION
     right 16/9*x
@@ -35,7 +38,17 @@ global_settings {
     // Rotate_Around_Trans(y * 180 * clock, <0, 2, 5>)
 }
 
-camera { CAMERA_SCENE }
+#declare CAMERA_TEST_2 = camera {
+    perspective
+    location <0, 0, 0>
+    right 16/9*x
+    look_at <0, 0, -1>
+    rotate <-45, 45, 0>
+    translate <0, 2, 6>
+}
+
+// camera { CAMERA_SCENE }
+camera { CAMERA_TEST_2 }
 
 light_source {
     // <0, 2, 5>
@@ -44,15 +57,16 @@ light_source {
 }
 
 object {
-    OBJ_Orion_Cabin
+    #local FRONT_DOOR_OPENESS = 0;
+    Orion_Cabin()
 }
 
 object { // sitting human
     #local DEBUG_ALL_JOINTS = true;
 
     #local LEFT_ARM_ROT = z * -75;
-    #local LEFT_LOWER_ARM_ROT = z * 60;
-    // #local LEFT_LOWER_ARM_ROT = <30, 90, 90>;
+    #local LEFT_LOWER_ARM_ROT = <0, 60, 45>;
+    #local LEFT_HAND_ROT = <90, 30, 0>;
     #local RIGHT_ARM_ROT = z * -75;
     #local RIGHT_LOWER_ARM_ROT = <0, 105, 30>;
     #local RIGHT_HAND_ROT = <90, -90, 0>;
@@ -64,3 +78,14 @@ object { // sitting human
     Human()
     translate VAR_SITTING_HUMAN_POSITION
 }
+
+object {
+    Pen
+    scale 0.02
+
+    #include "pen_animation"
+    translate Pen_Position(Time())
+    rotate Pen_Rotation(Time())
+}
+
+Trace_Position_And_Rotation_Spline(Pen_Position, Pen_Rotation, 100, 0.1)

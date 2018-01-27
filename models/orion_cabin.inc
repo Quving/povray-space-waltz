@@ -1,6 +1,6 @@
 #include "util.inc"
 
-#declare OBJ_Orion_Cabin = union {
+#macro Orion_Cabin()
     #macro Simple_Color(Color)
         pigment { color Color }
         finish {
@@ -56,7 +56,7 @@
             #local VAR_ARMREST_HEIGHT = 0.3;
             #local VAR_ARMREST_LENGTH = 0.3;
             #local VAR_ARMREST_WIDTH = 0.1;
-            #local VAR_BASE_HEIGHT = 0.4;
+            #local VAR_BASE_HEIGHT = 0.3;
             #local VAR_BASE_WIDTH = 0.2;
             #local MAT_SEAT_TEXTURE = texture {
                 Simple_Color(DimGrey)
@@ -137,7 +137,7 @@
 
                 box { // filler
                     0, <0.4, 0.8, VAR_WALKWAY_LENGTH>
-                    texture { Simple_Color(Grey) }
+                    texture { Simple_Color(DimGrey) }
 
                     rotate z * 42
                     translate x * 0.2
@@ -179,6 +179,8 @@
             box { // door
                 <-0.5, 0.35, 0.05>, <0.5, 2.45, 0.15>
 
+                texture { Simple_Color(DimGrey) }
+
                 translate x * Door_Openess
             }
 
@@ -186,43 +188,58 @@
         }
     #end
 
-    Wall_And_Door(0.3)
+    #macro Small_Room_In_Front_Of_Cabin()
+        union {
+            Wall_And_Door(0)
 
-    object {
-        Wall_And_Door(0)
-        translate z * (VAR_WALKWAY_LENGTH - 0.1)
-    }
+            #local OBJ_Side_Wall_In_Front_Of_Cabin = box {
+                x * 0.5, <0.6, 3, 2>
+                texture { Simple_Color(Grey) }
+            }
 
-    union {
-        Wall_And_Door(0)
-
-        #local OBJ_Side_Wall_In_Front_Of_Cabin = box {
-            x * 0.5, <0.6, 3, 2>
-            texture { Simple_Color(Grey) }
-        }
-
-        OBJ_Side_Wall_In_Front_Of_Cabin
-
-        object {
             OBJ_Side_Wall_In_Front_Of_Cabin
 
-            Mirror_X()
+            object {
+                OBJ_Side_Wall_In_Front_Of_Cabin
+
+                Mirror_X()
+            }
+
+            translate z * - 2
         }
+    #end
 
-        translate z * - 2
+    object {
+        union {
+            /* centered parts */
+            Center()
+
+            /* right side of the cabin */
+            Right_Side()
+
+            /* left side of the cabin */
+            union {
+                Right_Side()
+
+                sphere {
+                    0, 0.0000001
+                    pigment {
+                        rgbft 1
+                    }
+                }
+
+                Mirror_X()
+            }
+
+            // front wall and door
+            Wall_And_Door(FRONT_DOOR_OPENESS)
+
+            object { // back wall and door
+                Wall_And_Door(0)
+                translate z * (VAR_WALKWAY_LENGTH - 0.1)
+            }
+
+            Small_Room_In_Front_Of_Cabin()
+        }
     }
-
-    // TODO front and back wall
-
-    /* centered parts */
-    Center()
-
-    /* right side of the cabin */
-    Right_Side()
-
-    /* left side of the cabin */
-    union {
-        Right_Side()
-        Mirror_X()
-    }
-}
+#end
