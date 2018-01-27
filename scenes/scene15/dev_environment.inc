@@ -1,11 +1,10 @@
 #include "colors.inc"
-
 global_settings {
     assumed_gamma 1
 }
 
 camera {
-    location <1, 1, -1> * 20
+    location <1, 1, -1> * 40
     right 16/9 * x
     look_at <0,0,0>
 }
@@ -15,7 +14,7 @@ light_source {
     color rgb 1
 }
 
-background { Grey }
+background { Black }
 
 plane{ y, -1.5
     pigment{ checker Gray White }
