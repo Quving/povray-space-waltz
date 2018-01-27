@@ -62,9 +62,11 @@ object {
 object { // sitting human
     #local DEBUG_ALL_JOINTS = true;
 
+    #include "human_animation.inc"
+
     #local LEFT_ARM_ROT = z * -75;
-    #local LEFT_LOWER_ARM_ROT = <0, 60, 45>;
-    #local LEFT_HAND_ROT = <90, 30, 0>;
+    #local LEFT_LOWER_ARM_ROT = Left_Lower_Arm_Rotation(Time());
+    #local LEFT_HAND_ROT = Left_Hand_Rotation(Time());
     #local RIGHT_ARM_ROT = z * -75;
     #local RIGHT_LOWER_ARM_ROT = <0, 105, 30>;
     #local RIGHT_HAND_ROT = <90, -90, 0>;
