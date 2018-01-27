@@ -2,11 +2,19 @@
 #include "control_desk.inc"
 #include "dev_environment.inc"
 #include "orion_cabin.inc"
+#include "cockpit_room.inc"
 
-object {
-    CONTROL_DESK
+
+#declare COCKPIT = union {
+    object {
+        CONTROL_DESK
+        rotate <60, 0,0>
+        translate <0,10,40>
+    }
+    object { ROOM }
 }
 
 object {
-    Seat()
+    COCKPIT
+    translate <-10, 0,-10>
 }
