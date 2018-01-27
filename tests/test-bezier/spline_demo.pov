@@ -130,29 +130,36 @@ union{
 }  // end of union
 #end//-----------------------------------------------------------
 
+/*
+ca -2.00, <-0.39, 1.7, 5.7>, // control start
+p100 0.00, <-0.4, 1.5, 5.7>,  // start
+p200 2.00, <-0.37, 1.3, 5.7>, // pen moves downward into view
+//  8.00, <-0.39, 1.28, 5.7>,
+// 10.00, <-0.35, 1.1, 5.7>, // movement to the left side
+p300 12.00, <-0.25, 1, 5.7>,
+p400 18.00, <0, 0.85, 5.7>, // tiefpunkt der parabel
+p500 20.00, <0.1, 0.9, 5.7>, // end
+ce 20.20, <0.1, 0.9, 5.7>  // control end
+*/
 
-//#declare P1 = < -2, 1.0, -2>;
-#declare P1 = < -2, 1.0,  0>;
-#declare P2 = < -0, 1.0, -2>;
-#declare P3 = <  2, 1.0, -2>;
-#declare P4 = <  2, 1.0,  0>;
-#declare P5 = <  0, 1.0,  0>;
-#declare P6 = <  0, 1.0,  2>;
-#declare P7 = <  2, 1.0,  2>;
-//#declare P8 = <  4, 1.0,  2>;
-#declare P8 = < 01, 1.0,  7>;
+#declare CA = <-0.39, 1, 1.7>;
+#declare P100 = <-0.4, 1, 1.5>;
+#declare P200 = <-0.37, 1, 1.3>;
+#declare P300 = <-0.25, 1, 1>;
+#declare P400 = <0, 1, 0.85>;
+#declare P500 = <0.1, 1, 0.9>;
+#declare CE = <0.1, 1, 0.9>;
 
 
 
 // show the Positions
-object{ Marker(P1, Red )}
-object{ Marker(P2, Orange )}
-object{ Marker(P3, Orange )}
-object{ Marker(P4, Orange )}
-object{ Marker(P5, Orange )}
-object{ Marker(P6, Orange )}
-object{ Marker(P7, Orange )}
-object{ Marker(P8, Red )}
+object{ Marker(CA, Red )}
+object{ Marker(P100, Orange )}
+object{ Marker(P200, Orange )}
+object{ Marker(P300, Orange )}
+object{ Marker(P400, Orange )}
+object{ Marker(P500, Orange )}
+object{ Marker(CE, Red )}
 
 
 
@@ -160,14 +167,13 @@ object{ Marker(P8, Red )}
 #declare Spline_1 =
   spline {
     natural_spline
-   -0.20, P1, // controll point
+    -2.0, CA, // controll point
+     0.0, P100,
 
-    0.00, P2, // start
-    0.20, P3,
-    0.40, P4,
-    0.60, P5,
-    0.80, P6,
-    1.00, P7, // end
+    0.00, P200, // start
+    0.20, P300,
+    0.40, P400,
+    0.60, P500, // end
 
     1.20, P8 // controll point
   }
