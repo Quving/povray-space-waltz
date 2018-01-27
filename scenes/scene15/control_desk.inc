@@ -1,5 +1,4 @@
 #include "colors.inc"
-
 #macro Control_Desk(dimension, color_)
     box{ 0, <CONTROL_DESK_x, CONTROL_DESK_y, CONTROL_DESK_z>
         texture{
@@ -28,6 +27,9 @@
         object {
             Button1 (0, <BUTTON_x, BUTTON_y, BUTTON_z>, color_)
             translate <(BUTTON_x + padding)*idx_x, (BUTTON_y + padding ) * idx_y, -BUTTON_z>
+        }
+        object {
+            box { 0, 0 }
         }
     #end // for
 #end // for
@@ -148,14 +150,13 @@ translate <X,Y,Z>
 
 #declare CONTROL_DESK= union {
     /* Control desk parameter. */
-    #local CONTROL_DESK_x = 15.0; // half width in x
-    #local CONTROL_DESK_y = 2.0; // total height
-    #local CONTROL_DESK_z = 0.25; // length in z
+    #local CONTROL_DESK_x = 45; // half width in x
+    #local CONTROL_DESK_y = 6; // total height
+    #local CONTROL_DESK_z = 0.75; // length in z
 
     /* Control desk object. */
     object {
         Control_Desk(0, rgb<39/255, 37/255, 40/255>)
-        scale 3
     }
 
     object {
@@ -167,6 +168,7 @@ translate <X,Y,Z>
         Button_Set_Middle()
         translate <15, 0, 0>
     }
+
     translate <0, 0 ,0>
 }
 
