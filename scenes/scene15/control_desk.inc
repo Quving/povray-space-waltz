@@ -1,5 +1,4 @@
 #include "colors.inc"
-#include "dev_environment.inc"
 
 #macro Control_Desk(dimension, color_)
     box{ 0, <CONTROL_DESK_x, CONTROL_DESK_y, CONTROL_DESK_z>
@@ -147,7 +146,7 @@ translate <X,Y,Z>
     }
 #end
 
-union {
+#declare CONTROL_DESK= union {
     /* Control desk parameter. */
     #local CONTROL_DESK_x = 15.0; // half width in x
     #local CONTROL_DESK_y = 2.0; // total height
