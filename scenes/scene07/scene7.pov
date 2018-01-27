@@ -40,15 +40,13 @@ global_settings {
 
 #declare CAMERA_TEST_2 = camera {
     perspective
-    location <0, 0, 0>
+    location <0, 2, 7>
     right 16/9*x
-    look_at <0, 0, -1>
-    rotate <-45, 45, 0>
-    translate <0, 2, 6>
+    look_at <-0.5, 1.5, 6>
 }
 
-// camera { CAMERA_SCENE }
-camera { CAMERA_TEST_2 }
+camera { CAMERA_SCENE }
+// camera { CAMERA_TEST_2 }
 
 light_source {
     // <0, 2, 5>
@@ -84,8 +82,8 @@ object {
     scale 0.02
 
     #include "pen_animation"
-    translate Pen_Position(Time())
     rotate Pen_Rotation(Time())
+    translate Pen_Position(Time())
 }
 
-Trace_Position_And_Rotation_Spline(Pen_Position, Pen_Rotation, 100, 0.1)
+Trace_Position_And_Rotation_Spline(Pen_Position, Pen_Rotation, 21, 0.05)
