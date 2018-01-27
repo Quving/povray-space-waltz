@@ -45,19 +45,102 @@ plane{ y, -1.5
 #macro Button_Matrix (rows, columns, padding, color_)
     union {
         #for (idx_x, 0, columns-1, 1)
-            #for(idx_y, 0, rows-1, 1)
-                object {
-                Button1 (0, <BUTTON_x, BUTTON_y, BUTTON_z>, color_)
-                translate <(BUTTON_x + padding)*idx_x, (BUTTON_y + padding ) * idx_y, -BUTTON_z>
-            }
-            #end // for
-        #end // for
-        translate <X,Y,Z>
-    }
+        #for(idx_y, 0, rows-1, 1)
+        object {
+            Button1 (0, <BUTTON_x, BUTTON_y, BUTTON_z>, color_)
+            translate <(BUTTON_x + padding)*idx_x, (BUTTON_y + padding ) * idx_y, -BUTTON_z>
+        }
+    #end // for
+#end // for
+translate <X,Y,Z>
+}
 #end // macro
 
+#macro Button_Set_Middle()
+    union{
+        /* Last button row */
+        #local BUTTON_x = 1;
+        #local BUTTON_y = 1;
+        #local BUTTON_z = 0.25;
+        #local BUTTON_PADDING = 0.4;
+        #local X = 0;
+        #local Y = 0;
+        #local Z = 0;
+
+        object {
+            Button_Matrix(1,4, BUTTON_PADDING, MandarinOrange)
+        }
+
+        /* Before last button row */
+        #local Y = 1 *(BUTTON_PADDING + BUTTON_y); // Update X because BUTTON_x changed.
+        object {
+            Button_Matrix(3,4, BUTTON_PADDING, DarkTurquoise)
+        }
+
+        /* Little rectable button. */
+        #local BUTTON_x = 1.5;
+        #local BUTTON_y = 0.5;
+        #local X = 3*(BUTTON_PADDING+BUTTON_x);
+        #local Y = 0;
+        object {
+            Button_Matrix(1,1, BUTTON_PADDING, MandarinOrange)
+        }
+
+        /* Last button row */
+        #local X = 4*(BUTTON_PADDING+BUTTON_x);
+        object {
+            Button_Matrix(1,4, BUTTON_PADDING, DarkTan)
+        }
+
+        /* Before last button row */
+        #local Y = BUTTON_PADDING + (1 * BUTTON_y); // Update X because BUTTON_x changed.
+        object {
+            Button_Matrix(1,4, BUTTON_PADDING, Grey)
+        }
+
+        /* DarkBlue button matrix. */
+        #local Y = 2 *(BUTTON_PADDING + BUTTON_y); // Update X because BUTTON_x changed.
+        object {
+            Button_Matrix(2,4, BUTTON_PADDING, NewMidnightBlue)
+        }
+    }
+#end
+
+
+#macro Button_Set_Left()
+    union{
+        /* Last button row */
+        #local BUTTON_x = 2;
+        #local BUTTON_y = 0.75;
+        #local BUTTON_z = 0.25;
+        #local BUTTON_PADDING = 0.2;
+        #local X = 0;
+        #local Y = 0;
+        #local Z = 0;
+        object {
+            Button_Matrix(1,1, BUTTON_PADDING, MandarinOrange)
+        }
+
+        #local X = 1*(BUTTON_PADDING+BUTTON_x);
+        #local Y = 0;
+
+        object {
+            Button_Matrix(3,4, BUTTON_PADDING, MandarinOrange)
+        }
+
+        /* Little rectable button. */
+        #local X = 5*(BUTTON_PADDING+BUTTON_x);
+        #local Y = 0;
+        #local BUTTON_x = 1.5;
+        #local BUTTON_y = 0.5;
+        object {
+            Button_Matrix(1,1, BUTTON_PADDING, MandarinOrange)
+        }
+    }
+#end
+
 union {
-   /* Control desk parameter. */
+    /* Control desk parameter. */
     #local CONTROL_DESK_x = 10.0; // half width in x
     #local CONTROL_DESK_y = 2.0; // total height
     #local CONTROL_DESK_z = 0.25; // length in z
@@ -68,48 +151,14 @@ union {
         scale 3
     }
 
-    /* Last button row */
-    #local BUTTON_x = 1;
-    #local BUTTON_y = 1;
-    #local BUTTON_z = 0.25;
-    #local BUTTON_PADDING = 0.4;
-    #local X = 0;
-    #local Y = 0;
-    #local Z = 0;
     object {
-        Button_Matrix(1,4, BUTTON_PADDING, MandarinOrange)
+        Button_Set_Left()
+        translate <0, 0, 0>
     }
 
-   /* Before last button row */
-    #local Y = 1 *(BUTTON_PADDING + BUTTON_y); // Update X because BUTTON_x changed.
     object {
-        Button_Matrix(3,4, BUTTON_PADDING, DarkTurquoise)
-    }
-
-    /* Little rectable button. */
-    #local BUTTON_x = 1.5;
-    #local BUTTON_y = 0.5;
-    #local X = 3*(BUTTON_PADDING+BUTTON_x);
-    #local Y = 0;
-    object {
-        Button_Matrix(1,1, BUTTON_PADDING, MandarinOrange)
-    }
-
-    /* Last button row */
-    #local X = 4*(BUTTON_PADDING+BUTTON_x);
-    object {
-        Button_Matrix(1,4, BUTTON_PADDING, DarkTan)
-    }
-
-   /* Before last button row */
-    #local Y = BUTTON_PADDING + (1 * BUTTON_y); // Update X because BUTTON_x changed.
-    object {
-        Button_Matrix(1,4, BUTTON_PADDING, Grey)
-    }
-
-    #local Y = 2 *(BUTTON_PADDING + BUTTON_y); // Update X because BUTTON_x changed.
-    object {
-        Button_Matrix(2,4, BUTTON_PADDING, NewMidnightBlue)
+        Button_Set_Middle()
+        translate <15, 0, 0>
     }
 }
 
