@@ -185,9 +185,9 @@ translate <X,Y,Z>
 }
 
 #declare DISPLAY= union {
-    object { Box(<20,8,1>, Black) }
-    object { Box(<5,5,1>, CadetBlue) translate <2,2,-0.1>}
-    object { Box(<5,5,1>, CadetBlue) translate <13,2,-0.1>}
+    object { Box(<18,6,1>, rgb<10/255, 10/255, 10/255>) }
+    object { Box(<4.5, 4.5, 1>, CadetBlue) translate <0.5, 1, -0.1>}
+    object { Box(<4.5, 4.5, 1>, CadetBlue) translate <13, 1, -0.1>}
 }
 
 
