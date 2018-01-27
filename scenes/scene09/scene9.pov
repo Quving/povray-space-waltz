@@ -50,7 +50,7 @@ object {
 }
 
 object { // walking human
-    #local DEBUG_ALL_JOINTS = true;
+    #local DEBUG_ALL_JOINTS = false;
 
     #include "walking_human_animation.inc"
 
