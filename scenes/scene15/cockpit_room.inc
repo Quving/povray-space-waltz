@@ -27,7 +27,7 @@
     }
 #end
 
-#declare ROOM = union {
+#declare COCKPIT = union {
     /* Wall left. */
     object { Wall(<1,25,50>) translate 0 }
     /* Wall right. */
@@ -36,6 +36,10 @@
     object { Wall(<45,15,1>)  translate <0, 0, 50>}
     /* Floor */
     object { Wall(<45,1,50>)  translate <0, 0, 0>}
-
-
+    /* Control desk. */
+    object {
+        CONTROL_DESK
+        rotate <60, 0,0>
+        translate <0,10,40>
+    }
 }
