@@ -147,6 +147,18 @@ translate <X,Y,Z>
         }
     }
 #end
+#macro Box(dimension, color_)
+    object {
+        box{
+            0, dimension
+            texture{
+                pigment{color color_}
+                finish {diffuse 0.9}
+            }
+        }
+    }
+#end
+
 
 #declare CONTROL_DESK= union {
     /* Control desk parameter. */
@@ -170,6 +182,12 @@ translate <X,Y,Z>
     }
 
     translate <0, 0 ,0>
+}
+
+#declare DISPLAY= union {
+    object { Box(<20,8,1>, Black) }
+    object { Box(<5,5,1>, CadetBlue) translate <2,2,-0.1>}
+    object { Box(<5,5,1>, CadetBlue) translate <13,2,-0.1>}
 }
 
 
