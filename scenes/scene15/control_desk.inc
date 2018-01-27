@@ -168,7 +168,7 @@ union {
         Button_Set_Middle()
         translate <15, 0, 0>
     }
-    translate <-30, 0 ,0>
+    translate <0, 0 ,0>
 }
 
 
