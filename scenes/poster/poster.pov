@@ -6,9 +6,9 @@ global_settings {
 
 // #include "transforms.inc"
 
-#include "../../models/orion_POV_geom.inc"
-#include "../../models/StationV_POV_geom.inc"
-#include "../../models/space_wallpaper.inc"
+#include "orion_POV_geom.inc"
+#include "StationV_POV_geom.inc"
+#include "space_wallpaper.inc"
 
 /*
 sky_sphere{
