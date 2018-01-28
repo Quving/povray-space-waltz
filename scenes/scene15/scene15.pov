@@ -6,8 +6,7 @@ global_settings {
 #include "cockpit_room.inc"
 #include "../../models/StationV_POV_geom.inc" //Geometry
 #include "pilots.inc"
-
-background { Black }
+#include "space_wallpaper.inc"
 
 camera {
     location <30, 18, 7>
@@ -23,6 +22,6 @@ light_source {
 union {
     object { COCKPIT translate <0, 0, 0> }
     object { WAVING_PILOTS }
-    object { StationV_  rotate <0, 180, 0> translate <7500, 5000, 50000>}
+    object { StationV_  rotate <0, 180, -20+clock*30> translate <7500, 5000, 50000>}
 }
 
