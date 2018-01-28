@@ -8,22 +8,18 @@ global_settings {
 #include "cockpit_room.inc"
 #include "../../models/StationV_POV_geom.inc" //Geometry
 
-
 background { Black }
 
-#macro POI_3RD_PILOT()
-    camera {
-        location <30, 18, 7>
-        right 16/9 * x
-        look_at <30,13 ,40>
-    }
+camera {
+    location <30, 18, 7>
+    right 16/9 * x
+    look_at <30,13 ,40>
+}
 
-    light_source {
-        <30, 15, 10>
-        color rgb 1
-    }
-#end
-POI_3RD_PILOT()
+light_source {
+    <30, 15, 10>
+    color rgb 1
+}
 
 union {
     object { COCKPIT translate <0, 0, 0> }
