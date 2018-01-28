@@ -10,36 +10,42 @@ global_settings {
 #include "../../models/StationV_POV_geom.inc"
 #include "../../models/space_wallpaper.inc"
 
+/*
+sky_sphere{
+    pigment{
+        image_map{ jpeg "../../models/space_textures/starmap_4k.jpg"
+            map_type 1    // cylindrical
+            interpolate 2 // bilinear
+            once //
+        }
+    }
+    rotate<0,30,0>
+}
+*/
+
 camera {
-    location <-7000, -1500, -8000>
+    location <0, 0, -8000>
     right x * 1
     up y * 1.414213562
-    look_at <0, 0, -1000>
-    rotate <60, 0, 0>
+    look_at <0, 0, 0>
+    rotate <30, 15, 0>
 }
 
 light_source {
-    <-7000,-1500,-8000>
-    color rgb <1,1,1>*1.6
-    rotate <90, 0, 0>
-    rotate <0, -100, 0>
+    <-4000, 1500, -8000>
+    color rgb <1, 1, 1>
 }
 
 union {
     object {
         orion_
-
-        rotate x * 90
-        translate <0, 0, -6000>
-        rotate <90, 250, 0>
-        translate <0, -3500, 0>
-        rotate <0, -190, 0>
+        rotate z * 15
+        translate <0, 0, -2200>
     }
 
     object {
         StationV_
-
-        rotate <90, 0, 0>
-        rotate <0, -100, 0>
     }
+
+    rotate <0, -30, 15>
 }
