@@ -3,7 +3,6 @@ global_settings {
 }
 
 #include "colors.inc"
-#include "control_desk.inc"
 #include "pilots.inc"
 #include "cockpit_room.inc"
 #include "../../models/StationV_POV_geom.inc" //Geometry
