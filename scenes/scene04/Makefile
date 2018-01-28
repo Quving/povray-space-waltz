@@ -1,16 +1,33 @@
-
+PWD_WO_HOME = $(shell pwd | sed -e "s/\/home\/[a-z]*\///g")
+SCENE_NAME = $(shell pwd | sed -e "s/.*\///g")
 
 ffmpeg:
-	bash animate.sh scene04 5
-render:
-	rm *.png *.jpg *.mp4; \
-	    povray *.ini Final_Frame=50
+	bash animate.sh $(SCENE_NAME) 5
+	# rm *png
 
-# Render images and create mp4 file on server.
-path_to_ivc=/home/vngu/ivc/scenes/scene04/
+render:
+	mkdir -p out
+	povray *.ini
+
+update_environment:
+	rsync -r -v \
+		--cvs-exclude \
+		--exclude="scenes/*/*.png" \
+		--exclude="slides/" \
+		--exclude="*.mp4" \
+		../../  grapefruit:ivc/
+
 render_on_server:
-	ssh grapefruit "cd ${path_to_ivc} && git reset --hard && git pull origin master" && \
-	    rsync -r -v $(shell pwd)/* grapefruit:${path_to_ivc} && \
-	    ssh grapefruit "cd ${path_to_ivc} && make render && make ffmpeg" && \
-	    rsync -r -v  grapefruit:${path_to_ivc}*mp4 . && \
-	    vlc scene04_animation.mp4
+	rsync -r -v . grapefruit:ivc/scenes/
+	ssh grapefruit "cd ivc/scenes/$(SCENE_NAME) && make render && make ffmpeg"
+	rsync -r -v  grapefruit:$(PWD_WO_HOME)/*.mp4 .
+
+test:
+	povray $(SCENE_NAME).ini
+
+foo:
+	echo $(PWD_WO_HOME)
+	echo $(SCENE_NAME)
+
+clean:
+	rm -rf out/*.png
