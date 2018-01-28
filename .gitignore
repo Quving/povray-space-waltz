@@ -9,3 +9,4 @@ tests/**/*.png
 *.pov-state
 *.bak
 .DS_Store
+*.mpg
