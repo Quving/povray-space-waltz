@@ -69,4 +69,4 @@ object {
     translate Pen_Position(Time())
 }
 
-Trace_Position_And_Rotation_Spline(Pen_Position, Pen_Rotation, 8, 0.05)
+// Trace_Position_And_Rotation_Spline(Pen_Position, Pen_Rotation, 8, 0.05)
