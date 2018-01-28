@@ -33,8 +33,7 @@ background {
     color srgb 0
 }
 
-#declare orion_spline =
-spline {
+#declare ORION_SPLINE = spline {
     linear_spline
     0.00, <-500, -400, 100>, // control start
     1.00, < 1300, -1000, 100>  // control end
@@ -44,19 +43,8 @@ object {
     orion_
     /* location <0, 1000, 0> */
     rotate <1*sin(2*pi*clock),1*sin(2*pi*clock)+180,5*sin(2*pi*clock) + 0>
-    translate orion_spline(clock)
+    translate ORION_SPLINE(clock)
 }
-
-/* #declare Index = 0; */
-/* #while(Index <= 1) */
-/*     sphere{ */
-/*         <Index* 1000, Index*-1000 + 200, 1000>, 12 */
-/*         pigment { rgb <244/255, 128/255, 66/255> } */
-
-/*     } */
-/*     #declare Index = Index + 0.025; */
-/* #end */
-
 
 sphere {
     <12*10000, -4*12000, 6*10000>, 130000
