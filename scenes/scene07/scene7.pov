@@ -60,7 +60,7 @@ object {
 }
 
 object { // sitting human
-    #local DEBUG_ALL_JOINTS = true;
+    #local DEBUG_ALL_JOINTS = false;
 
     #include "human_animation.inc"
 
