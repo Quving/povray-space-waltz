@@ -106,6 +106,7 @@
     object { CONTROL_DESK rotate <60, 0,0> translate <(COCKPIT_x-45)/2,12,45>}
     object { DISPLAY translate <20,6,40> }
 
+    object { CONTROL_DESK rotate <-65, 0,0> scale <-1,1,1> translate <(COCKPIT_x+45)/2,25,43>}
     /* Seats left */
     object {
         Seat()
