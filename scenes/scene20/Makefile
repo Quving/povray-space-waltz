@@ -1,6 +1,33 @@
+PWD_WO_HOME = $(shell pwd | sed -e "s/\/home\/[a-z]*\///g")
+SCENE_NAME = $(shell pwd | sed -e "s/.*\///g")
+
 ffmpeg:
-	ffmpeg -start_number 1 -i test1%03d.png test.mp4
+	bash animate.sh $(SCENE_NAME) 5
 	# rm *png
 
 render:
-	povray test1.ini
+	mkdir -p out
+	povray *.ini
+
+update_environment:
+	rsync -r -v \
+		--cvs-exclude \
+		--exclude="scenes/*/*.png" \
+		--exclude="slides/" \
+		--exclude="*.mp4" \
+		../../  grapefruit:ivc/
+
+render_on_server:
+	rsync -r -v . grapefruit:ivc/scenes/
+	ssh grapefruit "cd ivc/scenes/$(SCENE_NAME) && make render && make ffmpeg"
+	rsync -r -v  grapefruit:$(PWD_WO_HOME)/*.mp4 .
+
+test:
+	povray $(SCENE_NAME).ini
+
+foo:
+	echo $(PWD_WO_HOME)
+	echo $(SCENE_NAME)
+
+clean:
+	rm -rf out/*.png
