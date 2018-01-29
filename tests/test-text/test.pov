@@ -5,7 +5,7 @@ global_settings {
 }
 
 camera {
-    location z * -20
+    location <0, 10, -20>
     right 16/9 * x
     look_at <0,0,0>
 }
@@ -40,4 +40,5 @@ union {
     }
 
     translate <-8, -0.5, 0>
+    rotate x * 90
 }

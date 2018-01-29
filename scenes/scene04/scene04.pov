@@ -6,16 +6,15 @@ global_settings {
 
 #include "space_wallpaper.inc"
 #include "orion_POV_geom.inc"
-
-#declare ORION_START_POSITION = < 2500, 1400, 1500>;
-#declare ORION_END_POSITION = < 1800, 1400, 1500>;
+#include "colors.inc"
 
 camera {
     perspective
     right 16/9 * x
     location 0
     look_at z
-    rotate x * -90 * clock
+    angle 93
+    rotate x * -80 * clock
 }
 
 light_source {
@@ -51,4 +50,32 @@ sphere {
         #else                 finish { ambient 1 diffuse 0}
         #end
     }
+}
+
+union {
+    text {
+        internal 2 " 2001: Space Waltz  "
+        0.3, 0
+        scale 2
+    }
+
+    text {
+        internal 2 "2k18 POV-Ray Edition"
+        0.3, 0
+        translate <3.5, -1.5, 0>
+    }
+
+    texture {
+        pigment { color White }
+        finish {
+            ambient 0.1
+            diffuse 0.85
+            phong 0.2
+        }
+    }
+
+    translate <-8, -0.5, 0> // center it
+    scale 100
+    translate z * 1000
+    rotate x * -75 // to be read from below
 }
