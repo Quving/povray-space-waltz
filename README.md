@@ -54,9 +54,22 @@ Weltraum (223s): 1, 2, 3, 4, 5, 6, 13, 14, 17, 18, 20
 Orion Passagierraum (komplexe Animation) (70s): 7, 8, 9, 10, 11, 12
 Orion Cockpit (28s): 15, 16, 19
 
+### Frames]
+
+Can be hounf [here](http://nextcloud.quving.com/s/Rz0sMC3ukrKEVI0).
+
 ### Rendering results
 
 Can be found [here](https://www.dropbox.com/sh/xzp3uizmcah1yaf/AAC9UrARoHbLAg4TAS3cS37Oa?dl=0).
+
+### Commands
+
+#### Render frames (Video is runnable on Linux and Windows)
+```
+ffmpeg -r 60 -start_number 1 -i scene19%03d.png -c:v libx264 \
+-strict experimental -tune fastdecode -pix_fmt yuv420p -b:v 1500k out.mp4
+
+```
 
 ### Important
 
