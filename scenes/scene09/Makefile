@@ -6,6 +6,7 @@ ffmpeg:
 	# rm *png
 
 render:
+	mkdir -p out
 	povray *.ini
 
 update_environment:
