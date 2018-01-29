@@ -30,4 +30,4 @@ foo:
 	echo $(SCENE_NAME)
 
 clean:
-	rm -rf out/*.png
+	rm -rf out/*.png out/*.jpg
