@@ -60,10 +60,10 @@ object { // walking human
     #local RIGHT_ARM_ROT = z * -85;
     #local RIGHT_LOWER_ARM_ROT = 0;
     #local RIGHT_HAND_ROT = 0;
-    #local LEFT_LEG_ROT = 0;
-    #local LEFT_LOWER_LEG_ROT = 0;
-    #local RIGHT_LEG_ROT = 0;
-    #local RIGHT_LOWER_LEG_ROT = 0;
+    #local LEFT_LEG_ROT = Walking_Human_Left_Leg_Rotation(Time());
+    #local LEFT_LOWER_LEG_ROT = Walking_Human_Left_Lower_Leg_Rotation(Time());
+    #local RIGHT_LEG_ROT = Walking_Human_Right_Leg_Rotation(Time());
+    #local RIGHT_LOWER_LEG_ROT = Walking_Human_Right_Lower_Leg_Rotation(Time());
 
     Human()
 
