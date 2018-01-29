@@ -2,20 +2,19 @@ PWD_WO_HOME = $(shell pwd | sed -e "s/\/home\/[a-z]*\///g")
 SCENE_NAME = $(shell pwd | sed -e "s/.*\///g")
 
 ffmpeg:
-	bash animate.sh $(SCENE_NAME) 5
-	# rm *png
-
+	ffmpeg -r 60 -start_number 1 -i out/${SCENE_NAME}_%03d.jpg -c:v libx264 \
+	    -strict experimental -tune fastdecode -pix_fmt yuv420p -b:v 1500k out/out.mp4
 render:
 	mkdir -p out
 	povray *.ini
 
 update_environment:
 	rsync -r -v \
-		--cvs-exclude \
-		--exclude="scenes/*/*.png" \
-		--exclude="slides/" \
-		--exclude="*.mp4" \
-		../../  grapefruit:ivc/
+	    --cvs-exclude \
+	    --exclude="scenes/*/*.png" \
+	    --exclude="slides/" \
+	    --exclude="*.mp4" \
+	    ../../  grapefruit:ivc/
 
 render_on_server:
 	rsync -r -v . grapefruit:ivc/scenes/
