@@ -3,30 +3,23 @@ This repository arises in scope of a project at the university. The scripts are 
 
 [![](http://img.youtube.com/vi/xyjOjT8d8RI/0.jpg)](https://www.youtube.com/watch?v=xyjOjT8d8RI)
 
-## Termine
+## Appointments
 
-- **29. Januar 2018**
-  - Eine CD mit dem fertigen Film (Quicktime-Movie oder Motion-JPG) und den POV-Ray-Skripten.
-  - Ein Poster für die Fachbereichs-EXPO. Das Poster sollte mindestens die Namen der Beteiligten, den Titel des Films, den Namen der Lehrveranstaltung und die Angabe Fachbereichs Informatik der Universität Hamburg sowie des aktuellen Semesters enthalten.
+**2018/01/29**
+  - Create a cd with the completed animation and the written povray code.
+  - Design a poster for the department-EXPO. The poster should provide informations regarding the members (names), title of the animation and the module of the university (also semester).
+  
+**2018/01/31**
+  - Wrtie a report. The report covers the usage of the models, tools, transformations etc.
+ 
+### Materials
+**Frames**
+Can be found [here](http://nextcloud.quving.com/s/Rz0sMC3ukrKEVI0) (Nextcloud).
 
-- **31. Januar 2018**
-  - Eine Dokumentation, in der Sie die Verwendung der eingesetzten Modellierungswerkzeuge, Transformationen usw. erläutern.
-
-## Todo
-
-- [x] get a topic: 2001: A Space Odyssey
-- [ ] get assets.
-  - [x] import models from web.
-    - [x] station
-    - [x] orion
-    - [ ] bomb 3
-    - [ ] bomb x
-  - [X] skybox
-- [X] create a presentation for wednesday 15.11.2017
-- [X] define relevant scenes for the self-created movie.
+**Rendering results**
+Can be found [here](https://www.dropbox.com/sh/xzp3uizmcah1yaf/AAC9UrARoHbLAg4TAS3cS37Oa?dl=0) (Dropbox).
 
 ### Scenes
-
 - [Scene  1](https://www.youtube.com/embed/xyjOjT8d8RI?start=0&end=13)    : Kamera schwenkt von Bombe zu Planet
 - [Scene  2](https://www.youtube.com/embed/xyjOjT8d8RI?start=13&end=23)   : Planet links, Bombe rechts im Bild
 - [Scene  3](https://www.youtube.com/embed/xyjOjT8d8RI?start=23&end=31)   : Planet halb vor Sonne, Bombe fliegt ins Bild
@@ -54,9 +47,15 @@ Weltraum (223s): 1, 2, 3, 4, 5, 6, 13, 14, 17, 18, 20
 Orion Passagierraum (komplexe Animation) (70s): 7, 8, 9, 10, 11, 12
 Orion Cockpit (28s): 15, 16, 19
 
-### Rendering results
 
-Can be found [here](https://www.dropbox.com/sh/xzp3uizmcah1yaf/AAC9UrARoHbLAg4TAS3cS37Oa?dl=0).
+### Commands
+
+#### Render frames (Video is runnable on Linux and Windows)
+```
+ffmpeg -r 60 -start_number 1 -i scene19%03d.png -c:v libx264 \
+-strict experimental -tune fastdecode -pix_fmt yuv420p -b:v 1500k out.mp4
+
+```
 
 ### Important
 
