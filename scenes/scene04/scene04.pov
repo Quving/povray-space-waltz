@@ -1,6 +1,3 @@
-//wrap the file with the version
-#local Temp_version = version;
-#version 3.7;
 global_settings {
     max_trace_level 15
     adc_bailout 0.01
@@ -8,65 +5,35 @@ global_settings {
 }
 
 #include "space_wallpaper.inc"
-#include "orion_POV_geom.inc" //Geometry
+#include "orion_POV_geom.inc"
 
-#declare orion_start_position = < 2500, 1400, 1500>;
-#declare orion_end_position = < 1800, 1400, 1500>;
-
-#declare camera_spline = spline {
-    natural_spline
-    -0.5 < 0,-100, orion_start_position.z >
-    0.00 < 0, 0, orion_start_position.z >,
-    0.4 < 0, 900, orion_start_position.z >
-    1.00 orion_start_position
-}
-
-#declare orion_spline = spline {
-    linear_spline
-    0.00, orion_start_position, // control start
-    1.00, orion_end_position  // control end
-}
-
+#declare ORION_START_POSITION = < 2500, 1400, 1500>;
+#declare ORION_END_POSITION = < 1800, 1400, 1500>;
 
 camera {
     perspective
-    right 16/9*x
+    right 16/9 * x
     location 0
-    sky < 0, 1, 0>
-    look_at camera_spline(clock)
+    look_at z
+    rotate x * -90 * clock
 }
 
-//PoseRay default Light attached to the camera
 light_source {
-    <0,100,0>
-    color rgb <1,1,1>*1.6
-    parallel
-    point_at <3.33066907387547E-16,1.33226762955019E-15,0>
-}
-
-background {
-    color srgb 0
+    <0, 100, 0>
+    color rgb <1, 1, 1>
 }
 
 object {
-    orion_
-    rotate < 180,90, 0>
-    translate orion_spline(clock)
+    orion_ // nose points to z
+    rotate <0, 0, 130> // rotation
+    translate z * 4000 * (clock - 0.4)  // movement
+    rotate <-75, -85, 0> // movement direction
+    translate <1500, 2000, 1000> // startposition
 }
-
-/* #declare Index = 0; */
-/* #while(Index <= 1) */
-/*     sphere{ */
-/*         <Index* 1000 - 100, Index*-100 + 800, 500>, 12 */
-/*         pigment { rgb <244/255, 128/255, 66/255> } */
-/*     } */
-/*     #declare Index = Index + 0.025; */
-/* #end */
-
 
 sphere {
     <0, -7*12000, 11*10000>, 130000
-    /* rotate <clock*15, 0, 0> */
+    // rotate <clock*15, 0, 0>
     pigment { rgb <0,0.75,0.75> }
     texture{
         pigment{ bozo turbulence 1.75
@@ -85,7 +52,3 @@ sphere {
         #end
     }
 }
-
-//restore the version used outside this file
-#version Temp_version;
-//==================================================
