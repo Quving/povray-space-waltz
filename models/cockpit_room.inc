@@ -186,8 +186,8 @@ translate <X,Y,Z>
 
 #declare DISPLAY= union {
     object { Box(<18,6,1>, rgb<10/255, 10/255, 10/255>) }
-    object { Box(<4.5, 4.5, 1>, CadetBlue*((sin(clock*100)+1)/2)) translate <0.5, 1, -0.1>}
-    object { Box(<4.5, 4.5, 1>, CadetBlue*((sin(clock*100+8)+1)/2)) translate <13, 1, -0.1>}
+    object { Box(<4.5, 4.5, 1>, CadetBlue*((sin(clock*2000)+1.5))) translate <0.5, 1, -0.1>}
+    object { Box(<4.5, 4.5, 1>, CadetBlue*((sin(clock*2000+8)+1.5))) translate <13, 1, -0.1>}
 }
 
 #macro Wall(dimension)

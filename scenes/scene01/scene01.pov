@@ -13,10 +13,8 @@ global_settings {
 camera {
     perspective
     right 16/9*x
-    /* location <6*sin(2*pi*clock),0,-5*cos(2*pi*clock)> */
     location 0
     look_at <-1-(1-tanh(clock)),-1-(1-tanh(clock)),1>
-    /* look_at <0, 0, 1> */
 }
 //PoseRay default Light attached to the camera
 light_source {
@@ -46,17 +44,6 @@ object {
     rotate <1*sin(2*pi*clock),1*sin(2*pi*clock)+180,5*sin(2*pi*clock) + 0>
     translate orion_spline(clock)
 }
-
-/* #declare Index = 0; */
-/* #while(Index <= 1) */
-/*     sphere{ */
-/*         <Index* 1000, Index*-1000 + 200, 1000>, 12 */
-/*         pigment { rgb <244/255, 128/255, 66/255> } */
-
-/*     } */
-/*     #declare Index = Index + 0.025; */
-/* #end */
-
 
 sphere {
     <12*10000, -4*12000, 6*10000>, 130000

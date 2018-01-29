@@ -1,4 +1,3 @@
-
 sky_sphere{
     //---------------------- gamma correction
     pigment{
