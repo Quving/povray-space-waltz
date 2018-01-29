@@ -1,3 +1,4 @@
+#include "math.inc"
 #macro Time()
     Scene_Length * clock
 #end // macro
@@ -18,7 +19,7 @@
             sphere {
                 Position_Spline(Current), Indicator_Radius
                 texture {
-                    pigment { color Pink }
+                    pigment { color Pink * Current/Scene_Length }
                     finish { ambient 0.15 diffuse 0.85 phong 1 }
                 }
             }
