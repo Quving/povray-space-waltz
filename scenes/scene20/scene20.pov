@@ -10,32 +10,23 @@ global_settings {
 #include "transforms.inc"
 
 camera {
-    location <10000 - 13000 * clock,0 , 0>
-    // rotate <-30 + 20 * clock, 0, -60 * clock>
-    rotate <-40, 0, 0>
-    translate y * -2200
-    look_at <-2000, 1000, 0>
+    location 0
+    look_at -x
+    rotate <-45 - 5 * clock, 0, -15 - 45 * clock> // look up and tilt
+    translate <10000 - 13000 * clock, -2200, 0> // move past the station
 }
 
 light_source {
-    <0, 3000, -10000>
+    <3000, -3000, -10000>
     color rgb <1, 1, 1>
-    rotate <15, 0, 0>
 }
-
-// cylinder {
-//     <10000, 0, 0>, <-10000, -5000, 1000>, 100
-// }
-
-// sphere {
-//     0, 2200
-// }
 
 union {
     object {
         orion_
-        rotate <0, 0, -90 * clock>
-        translate <0, 0, -2200>
+        scale 0.8
+        rotate <0, 0, -90 - 90 * clock>
+        translate <0, 0, -2700>
     }
 
     object {
