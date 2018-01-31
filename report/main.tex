@@ -1,0 +1,26 @@
+\documentclass[11pt,DIV=15,BCOR=20mm,bibliography=totoc]{scrbook}
+\usepackage{myPreamble}
+
+\begin{document}
+
+% TITELSEITE
+\include{_titlepage}
+
+\frontmatter
+
+\tableofcontents
+
+\mainmatter
+
+\include{report}
+%\include{kapitel2}
+%\include{kapitel3}
+%\include{kapitel4}
+%\include{kapitel5}
+%\include{kapitel6}
+%\include{kapitel7}
+
+\bibliographystyle{plainnat}
+\bibliography{report}
+    
+\end{document}
