@@ -4,8 +4,7 @@
 Inspired by the movie \textit{2001: A Space Odyssey} produced and directed by Stanley Kubrick, an adaption has been created by using povray. The adaption contains selected scenes of 5 minute clip on youtube.  With the exception of few scenes the cuts and scenes as well as the soundtrack are geared to the original video  \cite{EbClectic}.
 
 \chapter{Models}
-
-The whole short animation is created and created in povray. Everything but the starships (section \ref{imported_models}) has been created from scratch without using any tools.
+The whole short animation is created in povray. Everything but the starships (section \ref{imported_models}) has been created from scratch without using any tools.
 
 \section{Imported Models} \label{imported_models}
 
@@ -33,7 +32,7 @@ Since both models were not available in a format directly usable with POV-Ray bu
 The human is likely the most complex of the models we created, due to the hierarchy of connected parts.
 It consists of 13 individually poseable parts (three per limb and one for the head), that are connected via the torso.
 Each part is connected to either their direct parent part (i.e. the hand is connected to the underarm, which is connected to the upper arm) or the torso.
-The model can be posed (and animated) by assinging the rotation vectors to certain variables (see code below) before calling the macro that inserts the model. 
+The model can be posed (and animated) by assinging the rotation vectors to certain variables (see code below) before calling the macro that inserts the model.
 It also has a special mode that replaces the used textures with transparent ones and visualizes the alignment of the x, y and z axis at the point of each joint (see figure \ref{fig_human}).
 
 \begin{lstlisting}
