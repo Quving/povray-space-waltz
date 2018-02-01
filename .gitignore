@@ -12,6 +12,8 @@ tests/**/*.jpg
 *.bak
 .DS_Store
 *.mpg
+*.tex~
+*.bib~
 
 
 ## Core latex/pdflatex auxiliary files:
