@@ -4,6 +4,7 @@ scenes/**/*.jpg
 scenes/**/*.swp
 scenes/**/*.swo
 tests/**/*.png
+tests/**/*.jpg
 *.avi
 *.mp4
 *.swp
