@@ -5,26 +5,17 @@ Inspired by the movie \textit{2001: A Space Odyssey} produced and directed by St
 
 \chapter{Models}
 The whole short animation is created in POV-Ray. Everything but the starships (section \ref{imported_models}) has been created from scratch without using any external tools.
-
 \section{Imported Models} \label{imported_models}
 
 We found the models of the Orion III Spaceplane (figure \ref{orion}) and Space Station V (figure \ref{station}) by B.J. West with textures by Michael Powell in the \textit{2001: A Space Odyssey 3D Modelling Archiv} \cite{Archive}.
 Since both models were not available in a format directly usable with POV-Ray but \textit{3ds Max} (former called \textit{3D Studio Max}), we had to convert them from Autodesks proprietary format (.max) to the open Wavefront .obj format, which we then converted to POV-Ray code using PoseRay \cite{PoseRay}.
+\begin{figure} [ht]
+	\subfigure[Orion]{\includegraphics[width=0.55\textwidth]{images/orion.jpg} \label{orion} } 
+	\subfigure[Space Station V]{\includegraphics[width=0.6\textwidth]{images/station.jpg}	\label{station}} 
+	\caption{Imported Models: Left \textit{Orion}, Right \textit{Station V}} 
+\end{figure} 
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.85\textwidth]{images/orion.jpg}
-	\caption{Orion III Spaceplane}
-	\label{orion}
-\end{figure}
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.85\textwidth]{images/station.jpg}
-	\caption{Space Station V}
-	\label{station}
-\end{figure}
-
+\newpage
 \section{Remarkable Models}
 
 \subsection{Human} \label{human_model}
@@ -53,6 +44,7 @@ object {
 	\label{fig_human}
 \end{figure}
 
+\newpage
 \subsection{Cabin}
 
 The model of the cabin (figure \ref{cabin}) is built after the original (figure \ref{cabin_original}) using only boxes that are rotated and translated. The seats are duplicated using two for loops.
@@ -71,6 +63,7 @@ The model of the cabin (figure \ref{cabin}) is built after the original (figure 
 	\label{cabin_original}
 \end{figure}
 
+\newpage
 \subsection{Cockpit} \label{cockpit_model}
 Inspired by the cockpit (figure \ref{cockpit_original}) shown in the movie, the cockpit in the adaption  is built completely from scratch using POV-Ray (figure \ref{cockpit_povray}). The starship \textit{Station} on this scene belongs to the imported models (section \ref{imported_models}).
 The pilots are transformed models of the human (subsection \ref{human_model}).
