@@ -1,7 +1,7 @@
 # Povray Space Waltz
 This repository arises in scope of a project at the university. The scripts are written in [povray](http://www.povray.org/) and the scenes are inspired by the video shown below.
 
-[![](http://img.youtube.com/vi/xyjOjT8d8RI/0.jpg)](https://www.youtube.com/watch?v=xyjOjT8d8RI)
+[![](http://img.youtube.com/vi/bmVO12sePDU/3.jpg)](https://youtu.be/bmVO12sePDU)
 ### Result
 
 [Movie](https://www.dropbox.com/s/rhwbxh6xsowv4h8/Povray-Space-Waltz.mp4?dl=0)
